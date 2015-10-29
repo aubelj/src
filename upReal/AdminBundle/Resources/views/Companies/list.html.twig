@@ -1,0 +1,22 @@
+{% extends "URAdminBundle::adminLayout.html.twig" %}
+
+{% block currentPage %}
+	<h1>Companies administration panel</h1>
+	<a href="{{ path('ur_admin_company_add') }}"><button>Ajouter</button></a>
+	<br />
+	<br />
+
+	<table>
+	    {% for company in companies %}
+		   	<tr>
+				<td>{{ company.name }}</td>
+				<td>{{ company.website }}</td>
+				<td>
+					<a href="{{ path('ur_admin_company_delete', {'id': company.id })}}" onclick="return confirm('Cette société va être supprimée. Continuer ?')">
+						<button>Delete</button>
+					</a>
+				</td>
+			</tr>
+	    {% endfor %}
+	</table>
+{% endblock %}

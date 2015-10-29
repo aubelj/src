@@ -1,0 +1,38 @@
+upReal\UserBundle\Entity\Lists:
+    type: entity
+    table: lists
+    repositoryClass: upReal\UserBundle\Entity\ListsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '30'
+        public:
+            type: smallint
+        type:
+            type: integer
+        nbItems:
+            type: integer
+            column: nb_items
+        idUser:
+            type: integer
+            column: id_user
+        date:
+            type: datetime
+            column: date
+    oneToMany:
+        items:
+            targetEntity: upReal\UserBundle\Entity\Items
+            mappedBy: list
+    manyToOne:
+        user:
+            targetEntity: upReal\UserBundle\Entity\User
+            joinColumn:
+                name: id_user
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

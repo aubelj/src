@@ -1,0 +1,17 @@
+ur_product_homepage:
+    path:     /product/
+    defaults: { _controller: URProductBundle:Default:index }
+
+ur_product_categories:
+    path:     /product/category/
+    defaults: { _controller: URProductBundle:Default:category }
+
+ur_product_add:
+    path:     /product/add/
+    defaults: { _controller: URProductBundle:Default:add }
+
+ur_product_view:
+    path:     /product/{id}/
+    defaults: { _controller: URProductBundle:Default:view }
+    requirements:
+        id:    \d+

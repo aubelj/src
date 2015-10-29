@@ -1,0 +1,8 @@
+services:
+    ur_company_add.form.type.company:
+        class: upReal\CompanyBundle\Form\Type\CompanyType
+        tags:
+            - { name: form.type, alias: company }
+#    ur_admin.example:
+#        class: upReal\AdminBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

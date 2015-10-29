@@ -1,0 +1,53 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+	<div class="l-container">
+		
+		<div class="">
+			<h1>Proposer nous un nouveau produit</h1>
+
+<!-- 			<form class="form-horizontal submit-form login-form" action="#" method="post" id="contact_form"> -->
+			    {% if app.user %}
+					{{ form_start(form, {'action': path('ur_product_add'), 'method': 'POST', attr: {class: 'form-horizontal submit-form login-form'}}) }}
+						<ul>
+							<div class="form-group">
+								<p>Remplissez le formulaire du produit afin de pouvoir le retrouver sur notre site ! Notre équipe validera les informatons rapidement.</p>
+								<br/>
+							</div>
+
+						    {{ form_errors(form) }}
+							<div class='form-group'>
+								{{ form_label(form.name, null, {'label_attr': {'class': 'col-sm-2', 'for':'name'}}) }}
+								<div class="col-sm-9">
+									{{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+								</div>
+							</div>
+							<div class='form-group'>
+								{{ form_label(form.brand, null, {'label_attr': {'class': 'col-sm-2', 'for':'brand'}}) }}
+								<div class="col-sm-9">
+									{{ form_widget(form.brand, {'attr': {'class': 'form-control'}}) }}
+								</div>
+							</div>
+							<div class='form-group'>
+								{{ form_label(form.ean, null, {'label_attr': {'class': 'col-sm-2', 'for':'ean'}}) }}
+								<div class="col-sm-9">
+									{{ form_widget(form.ean, {'attr': {'class': 'form-control'}}) }}
+								</div>
+							</div>
+							<div class='form-group'>
+								{{ form_label(form.picture, null, {'label_attr': {'class': 'col-sm-2', 'for':'picture'}}) }}
+								<div class="col-sm-5">
+									{{ form_widget(form.picture, {'attr': {'class': 'form-control'}}) }}
+									<p class="help-block">L'image ne doit pas excéder 5mo</p>
+								</div>
+							</div>
+						</ul>
+						{{ form_row(form.submit) }}
+						{{ form_row(form._token) }}
+					{{ form_end(form, {'render_rest': false}) }}
+		</div>
+	</div>
+    {% else %}
+    	<h4>Vous devez être connecté pour ajouter un produit.</h4>
+    {% endif %}
+{% endblock %}

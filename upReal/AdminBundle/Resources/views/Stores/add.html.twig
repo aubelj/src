@@ -1,0 +1,11 @@
+{% extends "URAdminBundle::adminLayout.html.twig" %}
+
+{% block currentPage %}
+	<h1>Stores administration panel</h1>
+	<h2>Ajouter</h2>
+
+	{{ form_start(form, {'action': path('ur_admin_store_add'), 'method': 'POST'}) }}
+	{{ form_widget(form) }}
+	{{ form_end(form)}}
+
+{% endblock %}

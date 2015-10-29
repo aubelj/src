@@ -1,0 +1,548 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+<style type="text/css">
+.mapIconLabel {
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+
+}
+</style>
+
+<div class="l-container">
+	<h2 class="text-left">{{ product.name|upper }}</h2>
+
+	<!-- product-resume -->
+	<div class="section">
+		<div class="row">
+			<div class="col-md-3 market-img">
+				{% if product.picture %}
+					<img src='{{ asset("/" ~ product.getWebPath()) }}' class="item-thumb" style="max-width:300px;max-height:300px"></img>
+                {% else %}
+                    {% image '@URProductBundle/Resources/public/images/nopic.jpg' %}
+                        <img src="{{ asset_url }}" class="item-thumb" style="" />
+                    {% endimage %}
+				{% endif %}
+			</div>
+			<div class="store-summup col-md-9">
+			<div class="col-xs-12">
+				<div class="col-xs-6">
+					<h1 id="price"></h1>
+				</div>
+			</div>
+			<div class="col-xs-12 obj-rate">
+                <div class="col-xs-3 item-rating">
+      				<input id="input-2c" class="rating" value='4.3' readonly="true" min="0" max="5" step="0.5" data-size="xs" data-glyphicon="false" data-show-clear="false" data-show-caption="false" data-rating-class="rating-fa">
+                </div>
+					<span class="col-xs-4 obj-finalrate">
+						4,32/5 (47 avis)
+					</span>
+			</div>
+
+			<div class="col-xs-6">
+				<ul>
+					<li></li><br>
+				</ul>
+			</div>
+			<div class="col-xs-6">
+				<div class="thumbs-vote">
+					{% if like is empty %}
+						<button id='likeBtn' type="button" class="btn btn-default" onclick='javascript:likeButton()' {% if not app.user %} disabled='disabled' {% endif %}>
+					{% else %}
+						<button id='likeBtn' type="button" class="btn btn-default active" onclick='javascript:unlikeButton()' {% if not app.user %} disabled='disabled' {% endif %}>
+					{% endif %}
+					<span class="glyphicon glyphicon-thumbs-up" style='color:green' aria-hidden="true"></span>
+				</button>
+					{% if dislike is empty %}
+						<button id='dislikeBtn' type="button" class="btn btn-default" onclick='javascript:dislikeButton()' {% if not app.user %} disabled='disabled' {% endif %}>
+					{% else %}
+						<button id='dislikeBtn' type="button" class="btn btn-default active" onclick='javascript:undislikeButton()' {% if not app.user %} disabled='disabled' {% endif %}>
+					{% endif %}
+					<span class="glyphicon glyphicon-thumbs-down" style='color:red' aria-hidden="true"></span>
+				</button>
+
+				</div>
+				<p class="ù-to-list">
+					<button type="button" id='addListButton' class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-title="Listes" data-content="Chargement ...">
+  						Ajouter à ma liste
+					</button>
+				</p>
+				<div id='addListModal'></div>
+				<a id='mapButton' class='btn btn-default scrollTo' href="#storeMap" onclick='javascript:loadStores()'>Liste des magasins</a>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- product-relation -->
+		<div class="section">
+		
+      <div class="items-list userlist">
+      <h3 class="text-left">Ils vont vu ce produit et aussi consulté : </h3>
+      <div class="row">
+        <div class="col-xs-4 item-box">
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="col-xs-4 item-list-thumb">
+                    <span class="verticale-helper" />
+                    {% image '@URProductBundle/Resources/public/images/nopic.jpg' %}
+                        <img src="{{ asset_url }}" class="item-thumb" />
+                    {% endimage %}
+                  </div>
+                  <div class="col-xs-8">
+                    <p class="item-name">
+                      Coca-Cola Original 1.5l
+                    </p>
+                    <div class="item-rating">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-xs-4 item-box">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="col-xs-4 item-list-thumb">
+                    <span class="verticale-helper" />
+                    {% image '@URProductBundle/Resources/public/images/nopic.jpg' %}
+                        <img src="{{ asset_url }}" class="item-thumb" />
+                    {% endimage %}
+                  </div>
+                  <div class="col-xs-8">
+                    <p class="item-name">
+                      Dyson 1245g
+                    </p>
+                    <div class="item-rating">
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 item-box">
+          <div class="row">
+                <div class="col-xs-12">
+                  <div class="col-xs-4 item-list-thumb">
+                    <span class="verticale-helper" />
+                    {% image '@URProductBundle/Resources/public/images/nopic.jpg' %}
+                        <img src="{{ asset_url }}" class="item-thumb" />
+                    {% endimage %}
+                  </div>
+                  <div class="col-xs-8">
+                    <p class="item-name">
+                      Milka Tuc x12
+                    </p>
+                    <div class="item-rating">
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      <p class="text-right link-container">
+        <a href="#" class="text-right">Voir tout >></a>
+      </p>
+    </div>
+
+	</div>
+
+		{% if sells is not empty %}
+			<div class='section' id='storeMap' style='display:none;height:530px;background:ghostwhite'>
+				<div class="row">
+				  <div class="col-md-4" style='height:500px;overflow-y:auto;'>
+				  	{% for sell in sells %}
+		  				<a class='sellers' id='{{ "sell" ~ sell.id }}' href="{{ path('ur_store_view', {'id': sell.store.id}) }}">
+				  			<div style='padding:5px;margin-top:10px;background-color:white;border:1px solid grey'>
+				  				<b>{{ sell.store.name }}</b>
+				  				<span style='float:right;color:white;color:#dd4343;font-weight:bold;margin:10px'>{{ sell.price }} €</span><br>
+				  				<span>{{ sell.store.address.address }}</span>
+				  				<span>{{ sell.store.address.city }}</span>
+				  				<span>{{ sell.store.address.postalCode }}</span>
+				  			</div>
+			  			</a>
+		  			{% endfor %}
+			  	  </div>
+			  	  <div id='map' class='col-md-8' style='width:750px;height:500px;'></div>
+				</div>
+			</div>
+		{% else %}
+			<div class='section' id='storeMap' style='text-align:center;display:none;background:ghostwhite'>
+				<p style='margin:0px;'>Aucun magasin ne référence actuellement ce produit.</p>
+			</div>
+		{% endif %}
+
+	<!-- product-caracteristics -->
+	<div class='section'>
+		<div class="col-md-3" id="product-tab">
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation" class="active panel-btn" data-check="tab1"><a href="#product-tab">Caratéristique</a></li>
+				<li role="presentation" class="panel-btn" data-check="tab2"><a href="#product-tab">Description</a></li>
+				<li role="presentation" class="panel-btn" data-check="tab3"><a href="#product-tab">Avis</a></li>
+				<li role="presentation" class="panel-btn" data-check="tab4"><a href="#product-tab">Magasins</a></li>
+			</ul>
+		</div>
+		<div class="col-md-9">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<!-- Table 1-->
+				<table class="table text-center panel-table" id="tab1">
+					{% for spec in specs %}
+						{% if loop.index0 is divisibleby(2) %}
+							<tr class="odd">
+						{% else %}
+							<tr class="even">
+						{% endif %}
+							<td >{{ spec.fieldName }}</td>
+							<td >{{ spec.fieldDesc }}</td>
+						</tr>
+					{% endfor %}
+				</table>
+
+				<!-- Table 2-->
+				<table class="table text-center panel-table" id="tab2">
+					<tr>
+						<td>tab 2</td>
+						<td>tab2</td>
+					</tr>
+					<tr>
+						<td>tab 2</td>
+						<td>tab2</td>
+					</tr>
+				</table>
+
+				<!-- Table 3-->
+				<table class="table text-center panel-table" id="tab3">
+					<tr>
+						<td>tab 3</td>
+						<td>tab3</td>
+					</tr>
+					<tr>
+						<td>tab 3</td>
+						<td>tab3</td>
+					</tr>
+				</table>
+
+				<!-- Table 4-->
+				<table class="table text-center panel-table" id="tab4">
+					<tr>
+						<td>tab 4</td>
+						<td>tab4</td>
+					</tr>
+					<tr>
+						<td>tab 4</td>
+						<td>tab4</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	{{ render(controller('URRateBundle:Comment:list', {'idTarget': product.id})) }}
+{% endblock %}
+
+{% block scriptSection %}
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+	{% javascripts '@URProductBundle/Resources/public/js/*' %}
+	    <script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+	<script>
+		$(function () {
+		  $('#addListButton').popover({
+		  	html : true
+		  }); 
+		})
+
+		var markers = [];
+		x = 0;
+		$(document).ready(function() {
+			$('.scrollTo').click( function() {
+				var page = $(this).attr('href');
+				var speed = 1500;
+				$('html, body').animate( { scrollTop: $(page).offset().top }, speed );
+				return false;
+			});
+
+		    $('#addListButton').click(function(event) {
+		        event.preventDefault();
+		        // appel Ajax
+				$.ajax({
+				    type: "POST",
+				    dataType: 'html',
+				    url: '{{ path('ur_user_get_lists', {'idProduct': product.id}) }}',
+				    async: true
+				})
+				.done(function(response){
+					btn = document.getElementById("addListButton");
+					sq = response.replace(/\'/g, "\"");
+					btn.setAttribute("data-content", sq);
+					if (x === 0)
+					{
+						$('#addListButton').popover('show');
+						x++;
+					}
+				    // $('#addListModal').html(response);
+				})
+				.fail(function(jqXHR, textStatus, errorThrown){
+				    alert('Error : ' + errorThrown);
+				})
+		    });
+		});
+
+
+		$(".sellers").on('mouseenter', function() {
+			// console.log(markers);
+		    var id=$(this).attr('id');
+   			markers[id].setIcon('http://google-maps-icons.googlecode.com/files/blackblank.png');
+   		}).on('mouseleave', function() {
+		    var id=$(this).attr('id');
+   			markers[id].setIcon('http://google-maps-icons.googlecode.com/files/redblank.png');   			
+		});
+
+		function getCoord(curName, curAddress)
+		{
+			var geocoder = new google.maps.Geocoder();
+			geocoder.geocode( { 'address': curAddress}, function(results, status) {
+
+			  if (status == google.maps.GeocoderStatus.OK)
+			  {
+				lat = results[0].geometry.location.lat();
+			    lng = results[0].geometry.location.lng();
+
+	    		var marker, i;
+		     	var infowindow = new google.maps.InfoWindow();
+
+				marker = new google.maps.Marker({
+					position: new google.maps.LatLng(lat, lng), 
+					map: map, 
+					title: 'Magasin'
+				});
+			  }
+			});
+		}
+
+		function toggleMap()
+		{
+			$("#storeMap").toggle();
+		}
+
+		// GOOGLE MAPS
+		var map;
+		var geocoder;
+		var infoWindow; 
+		var marker;
+		var bounds;
+		function loadStores()
+		{
+			var preStores = [
+				{% for sell in sells %}
+					['<b>{{ sell.store.name }}</b>', '{{sell.store.address.address ~ " " ~ sell.store.address.city ~ " " ~ sell.store.address.postalCode ~ " " ~ sell.store.address.country}}', '{{ sell.price }}€', '{{ sell.product.id }}', '{{ "sell" ~ sell.id }}'],
+				{% endfor %}
+			];
+
+			if (preStores.length > 0)
+			{
+				initMap(preStores);
+
+				for (i = 0; preStores[i]; i++)
+				{
+					geocodeAddress(preStores[i]);
+				}
+
+			    if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function(position) {
+						var pos = {
+							lat: position.coords.latitude,
+							lng: position.coords.longitude
+						};
+						var marker = new google.maps.Marker({
+					    	position: pos,
+					    	map: map
+						});
+						// infoWindow.setPosition(pos);
+						// infoWindow.setContent('Votre position');
+						marker.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow-dot.png');
+						// infoWindow.open(map);
+						map.setCenter(pos);
+
+					}, function() {
+						handleLocationError(true, infoWindow, map.getCenter());
+					});
+				} else {
+					handleLocationError(false, infoWindow, map.getCenter());
+				}
+			}
+			// console.log(markers);
+			$("#storeMap").toggle();
+			document.getElementById('mapButton').onclick = toggleMap;
+		}
+
+		function initMap(preStores)
+		{
+			map = new google.maps.Map(document.getElementById('map'), {
+     			zoom: 13,
+      			mapTypeId: google.maps.MapTypeId.ROADMAP
+    		});
+
+			infoWindow = new google.maps.InfoWindow();
+		    geocoder = new google.maps.Geocoder();
+		    // bounds = new google.maps.LatLngBounds ();
+		}
+
+		function geocodeAddress(location)
+		{
+			geocoder.geocode( { 'address': location[1]}, function(results, status) {
+			    if (status == google.maps.GeocoderStatus.OK)
+			    {
+			    	// map.setCenter(results[0].geometry.location);
+			    	createMarker(results[0].geometry.location, location, location[0]+"<hr><span style='font-size:22px;color:#dd4343'>"+location[2]+"</span>");
+			    	// bounds.extend(results[0].geometry.location);
+			    }
+			    else
+			    {
+			      alert("Geocode error : " + status);
+			    }
+			    // map.fitBounds(bounds);
+		  	}); 
+		}
+
+		function createMarker(latlng, infos, html)
+		{
+			// window.setTimeout(function() {
+			//     markers.push(new google.maps.Marker({
+			//     	position: latlng,
+			//     	map: map,
+			//     	animation: google.maps.Animation.DROP
+			//     }));
+			//   }, 500);
+			
+
+			// var marker = new MarkerWithLabel({
+		 //    	position: latlng,
+   //              map: map,
+		 //    	// icon: 'http://google-maps-icons.googlecode.com/files/redblank.png',
+	  //           draggable: false,
+	  //           raiseOnDrag: false,
+	  //           // labelContent: "70€",
+	  //           // labelAnchor: new google.maps.Point(9, 25),
+   //              labelClass: "mapIconLabel", // the CSS class for the label
+   //              labelInBackground: false
+		 //    });
+
+			var marker = new google.maps.Marker({
+		    	position: latlng,
+		    	map: map,
+		    	icon: 'http://google-maps-icons.googlecode.com/files/redblank.png',
+		    	animation: google.maps.Animation.DROP
+			}); 
+
+			// console.log(markers);
+			google.maps.event.addListener(marker, 'mouseover', function() { 
+				marker.setIcon('http://google-maps-icons.googlecode.com/files/blackblank.png');
+		   		infoWindow.setContent(html);
+		   		infoWindow.open(map, marker);
+		  	});
+
+			google.maps.event.addListener(marker, 'mouseout', function() { 
+				marker.setIcon('http://google-maps-icons.googlecode.com/files/redblank.png');
+		    	infoWindow.close();
+		  	});
+
+			markers[infos[4]] = marker;
+			// markers.push(marker);
+		}
+
+		function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+		  infoWindow.setPosition(pos);
+		  infoWindow.setContent(browserHasGeolocation ?
+		                        'Error: The Geolocation service failed.' :
+		                        'Error: Your browser doesn\'t support geolocation.');
+		}
+
+
+		function likeButton()
+		{
+			$.ajax({
+			    type: "POST",
+			    dataType: 'html',
+			    url: '{{ path('ur_rate_like_product', {'id': product.id}) }}',
+			    async: true
+			})
+			.done(function(response){
+				msgBox = document.getElementById("msgBox");
+				msgBox.innerHTML = response;
+				likebtn = document.getElementById("likeBtn");
+				likebtn.className = likebtn.className + " active";
+				likebtn.setAttribute('onclick', 'javascript:unlikeButton()');
+			})
+			.fail(function(jqXHR, textStatus, errorThrown){
+			    alert('Error : ' + errorThrown);
+			})
+		}
+
+		function unlikeButton()
+		{
+			$.ajax({
+			    type: "POST",
+			    dataType: 'html',
+			    url: '{{ path('ur_rate_unlike_product', {'id': product.id}) }}',
+			    async: true
+			})
+			.done(function(response){
+				msgBox = document.getElementById("msgBox");
+				msgBox.innerHTML = response;
+				likebtn = document.getElementById("likeBtn");
+				likebtn.classList.remove('active');
+				likebtn.setAttribute('onclick', 'javascript:likeButton()');
+			})
+			.fail(function(jqXHR, textStatus, errorThrown){
+			    alert('Error : ' + errorThrown);
+			})
+		}
+
+		function dislikeButton()
+		{
+			$.ajax({
+			    type: "POST",
+			    dataType: 'html',
+			    url: '{{ path('ur_rate_dislike_product', {'id': product.id}) }}',
+			    async: true
+			})
+			.done(function(response){
+				msgBox = document.getElementById("msgBox");
+				msgBox.innerHTML = response;
+				likebtn = document.getElementById("dislikeBtn");
+				likebtn.className = likebtn.className + " active";
+				likebtn.setAttribute('onclick', 'javascript:undislikeButton()');
+			})
+			.fail(function(jqXHR, textStatus, errorThrown){
+			    alert('Error : ' + errorThrown);
+			})
+		}
+
+		function undislikeButton()
+		{
+			$.ajax({
+			    type: "POST",
+			    dataType: 'html',
+			    url: '{{ path('ur_rate_undislike_product', {'id': product.id}) }}',
+			    async: true
+			})
+			.done(function(response){
+				msgBox = document.getElementById("msgBox");
+				msgBox.innerHTML = response;
+				likebtn = document.getElementById("dislikeBtn");
+				likebtn.classList.remove('active');
+				likebtn.setAttribute('onclick', 'javascript:dislikeButton()');
+			})
+			.fail(function(jqXHR, textStatus, errorThrown){
+			    alert('Error : ' + errorThrown);
+			})
+		}
+
+	</script>
+{% endblock %}

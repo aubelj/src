@@ -1,0 +1,32 @@
+upReal\UserBundle\Entity\History:
+    type: entity
+    table: history
+    repositoryClass: upReal\UserBundle\Entity\HistoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+            column: id_user
+        actionType:
+            type: integer
+            column: action_type
+        idType:
+            type: integer
+            column: id_type
+        idTarget:
+            type: integer
+            column: id_target
+        date:
+            type: datetime
+    manyToOne:
+        user:
+            targetEntity: upReal\UserBundle\Entity\User
+            joinColumn:
+                name: id_user
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

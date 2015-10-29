@@ -1,0 +1,2013 @@
+/* base */
+/* line 1, ../scss/base/base.scss */
+html, body, .l-wrap {
+  height: 100%;
+}
+
+/* line 2, ../scss/base/base.scss */
+body > .l-wrap {
+  height: auto;
+  min-height: 100%;
+}
+
+/* line 4, ../scss/base/base.scss */
+p {
+  margin: 0;
+}
+
+/* line 7, ../scss/base/base.scss */
+body {
+  background: #f5f6f7;
+  color: #363C43;
+  font-size: 18px;
+  font-family: "Droid Sans", "Signika", arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 17, ../scss/base/base.scss */
+a {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+/* line 19, ../scss/base/base.scss */
+h1 {
+  margin: 20px 0 40px 0 !important;
+}
+
+/* line 23, ../scss/base/base.scss */
+h2 {
+  font-size: 27px;
+  line-height: 1.15;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* line 31, ../scss/base/base.scss */
+h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: auto;
+}
+
+/* line 37, ../scss/base/base.scss */
+li {
+  list-style-type: none;
+}
+
+/* line 41, ../scss/base/base.scss */
+.verticale-helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+/* line 47, ../scss/base/base.scss */
+.cb {
+  clear: both;
+}
+
+/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+/* line 11, ../scss/base/normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+/* line 30, ../scss/base/normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 41, ../scss/base/normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 50, ../scss/base/normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 64, ../scss/base/normalize.scss */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+/* line 74, ../scss/base/normalize.scss */
+body {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+/* line 86, ../scss/base/normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+/* line 94, ../scss/base/normalize.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 108, ../scss/base/normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+/* line 117, ../scss/base/normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 125, ../scss/base/normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+/* line 134, ../scss/base/normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/* line 142, ../scss/base/normalize.scss */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 152, ../scss/base/normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+/* line 161, ../scss/base/normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+/* line 173, ../scss/base/normalize.scss */
+pre {
+  white-space: pre-wrap;
+}
+
+/**
+ * Set consistent quote types.
+ */
+/* line 181, ../scss/base/normalize.scss */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/* line 189, ../scss/base/normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 197, ../scss/base/normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 205, ../scss/base/normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 209, ../scss/base/normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+/* line 221, ../scss/base/normalize.scss */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+/* line 229, ../scss/base/normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+/* line 241, ../scss/base/normalize.scss */
+figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+/* line 253, ../scss/base/normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/* line 264, ../scss/base/normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 275, ../scss/base/normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 289, ../scss/base/normalize.scss */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+/* line 301, ../scss/base/normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 314, ../scss/base/normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 326, ../scss/base/normalize.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+/* line 336, ../scss/base/normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 348, ../scss/base/normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+/* line 360, ../scss/base/normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/* line 369, ../scss/base/normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+/* line 380, ../scss/base/normalize.scss */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+/* line 393, ../scss/base/normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* layout */
+/* line 1, ../scss/layout/grid.scss */
+.l-container {
+  overflow: hidden;
+  *zoom: 1;
+  width: 1170px;
+  margin: 0 auto;
+}
+
+/* @media screen and (min-width: 1550px)
+{
+    header > .l-container
+    {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+	.l-container{
+		width: auto;
+		float: left;
+		margin-left: 2%;
+	}
+}
+
+@media screen and (min-width: 1600px)
+{
+    .contents > .section:first-child
+    {
+        margin-left: 6%;
+    }
+} */
+/* line 1, ../scss/layout/section.scss */
+.section {
+  padding: 12px;
+  position: relative;
+  margin-bottom: 2%;
+}
+
+/* modules */
+/* line 1, ../scss/modules/header.scss */
+.header {
+  margin-bottom: 15px;
+}
+
+/* line 5, ../scss/modules/header.scss */
+.header-top {
+  background: #eaedf1;
+}
+
+/* line 9, ../scss/modules/header.scss */
+.header-baseline {
+  margin: 20px;
+  font-size: 35px;
+}
+
+/* line 14, ../scss/modules/header.scss */
+.header-logo {
+  float: left;
+  width: 50%;
+}
+
+/* line 19, ../scss/modules/header.scss */
+.baseline {
+  float: left;
+  width: 50%;
+}
+/* line 22, ../scss/modules/header.scss */
+.baseline .dlButton {
+  -moz-box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  background: url(http://symfony.com/images/v5/pictos/icon-download.svg) no-repeat 15px 50%, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2I4ZTM1NiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2E1Y2M1MiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: url(http://symfony.com/images/v5/pictos/icon-download.svg) no-repeat 15px 50%, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(5%, #b8e356), color-stop(100%, #a5cc52));
+  background: url(http://symfony.com/images/v5/pictos/icon-download.svg) no-repeat 15px 50%, -moz-linear-gradient(top, #b8e356 5%, #a5cc52 100%);
+  background: url(http://symfony.com/images/v5/pictos/icon-download.svg) no-repeat 15px 50%, -webkit-linear-gradient(top, #b8e356 5%, #a5cc52 100%);
+  background: url(http://symfony.com/images/v5/pictos/icon-download.svg) no-repeat 15px 50%, linear-gradient(to bottom, #b8e356 5%, #a5cc52 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52',GradientType=0);
+  background-color: #b8e356;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #83c41a;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 12px 10px 50px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #86ae47;
+}
+/* line 38, ../scss/modules/header.scss */
+.baseline .dlButton:hover {
+  background: url(http://symfony.com/images/v5/pictos/icon-download.svg) no-repeat 15px 50%, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2E1Y2M1MiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2I4ZTM1NiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: url(http://symfony.com/images/v5/pictos/icon-download.svg) no-repeat 15px 50%, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(5%, #a5cc52), color-stop(100%, #b8e356));
+  background: url(http://symfony.com/images/v5/pictos/icon-download.svg) no-repeat 15px 50%, -moz-linear-gradient(top, #a5cc52 5%, #b8e356 100%);
+  background: url(http://symfony.com/images/v5/pictos/icon-download.svg) no-repeat 15px 50%, -webkit-linear-gradient(top, #a5cc52 5%, #b8e356 100%);
+  background: url(http://symfony.com/images/v5/pictos/icon-download.svg) no-repeat 15px 50%, linear-gradient(to bottom, #a5cc52 5%, #b8e356 100%);
+  background-color: #a5cc52;
+}
+/* line 42, ../scss/modules/header.scss */
+.baseline .dlButton:active {
+  position: relative;
+  top: 1px;
+}
+
+/* ------------- menu ------------- */
+/* line 54, ../scss/modules/header.scss */
+#menubar-sticky-wrapper {
+  margin-top: 20px;
+  max-height: 42px;
+}
+
+/* line 60, ../scss/modules/header.scss */
+.header-menu {
+  background: white;
+  width: 100%;
+  z-index: 100;
+  -moz-box-shadow: 0 8px 14px -14px black;
+  -webkit-box-shadow: 0 8px 14px -14px black;
+  box-shadow: 0 8px 14px -14px black;
+}
+
+/* line 68, ../scss/modules/header.scss */
+.header-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* line 75, ../scss/modules/header.scss */
+.header-menu li {
+  display: inline;
+}
+
+/* line 79, ../scss/modules/header.scss */
+.header-menu li > a {
+  display: inline-block;
+  padding: 10px 16px;
+}
+/* line 82, ../scss/modules/header.scss */
+.header-menu li > a:hover {
+  background: #eaedf1;
+  text-decoration: none;
+}
+/* line 86, ../scss/modules/header.scss */
+.header-menu li > a.menu-item-dl {
+  display: none;
+  background-color: #b8e356;
+  color: white;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+/* line 96, ../scss/modules/header.scss */
+.is-sticky li > a.menu-item-dl {
+  display: inline-block;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+/* line 1, ../scss/modules/userbar.scss */
+.header-userbar {
+  height: 35px;
+  width: 100%;
+  background: #363C43;
+  color: white;
+  display: inline-block;
+  z-index: 1000;
+}
+
+/* line 11, ../scss/modules/userbar.scss */
+#userbar-sticky-wrapper {
+  max-height: 35px;
+}
+
+/* *******************  search  ******************* */
+/* line 17, ../scss/modules/userbar.scss */
+.header-search {
+  height: 100%;
+}
+
+/* line 21, ../scss/modules/userbar.scss */
+.header-search form {
+  float: right;
+  height: 100%;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzg0ODY4ZCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQyNDQ0NyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #84868d), color-stop(100%, #424447));
+  background-image: -moz-linear-gradient(top, #84868d 0%, #424447 100%);
+  background-image: -webkit-linear-gradient(top, #84868d 0%, #424447 100%);
+  background-image: linear-gradient(to bottom, #84868d 0%, #424447 100%);
+}
+
+/* line 27, ../scss/modules/userbar.scss */
+.header-search input {
+  border: none;
+  outline: none;
+  height: 100%;
+  width: 250px;
+  padding: 0 45px;
+  color: #fff;
+  background: url("http://www.clker.com/cliparts/n/U/H/1/H/u/search-icon-white-one-md.png") no-repeat 5% center;
+  background-size: 9%;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+/* line 39, ../scss/modules/userbar.scss */
+.header-search input:focus {
+  width: 320px;
+  color: black;
+  background: url("https://cdn1.iconfinder.com/data/icons/hawcons/32/698956-icon-111-search-128.png") no-repeat 2% center;
+  background-size: 10%;
+  background-color: #F0F0F0;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+/* *******************  dropdown button  ******************* */
+/* line 53, ../scss/modules/userbar.scss */
+.header-dropdown {
+  width: 20%;
+  float: left;
+}
+
+/* line 58, ../scss/modules/userbar.scss */
+.userbar-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* line 63, ../scss/modules/userbar.scss */
+.userbar-dropdown .userbar-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  display: none;
+  margin: 0;
+  width: 100%;
+  /** Set the width to 100% of it's parent */
+  padding: 0;
+}
+
+/* line 72, ../scss/modules/userbar.scss */
+.userbar-dropdown:hover .userbar-dropdown-menu {
+  display: block;
+}
+
+/* line 76, ../scss/modules/userbar.scss */
+.userbar-dropdown button {
+  background: #dd4343;
+  color: #FFFFFF;
+  border: none;
+  margin: 0;
+  padding: 0.4em 0.8em;
+  font-size: 1em;
+  height: 35px;
+}
+
+/* line 86, ../scss/modules/userbar.scss */
+.userbar-dropdown a {
+  display: block;
+  padding: 0.2em 0.8em;
+  text-decoration: none;
+  background: #CCCCCC;
+  color: #333333;
+}
+
+/* line 94, ../scss/modules/userbar.scss */
+.userbar-dropdown a:hover {
+  background: #E27A7A;
+  color: white;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+/* line 100, ../scss/modules/userbar.scss */
+.header-news {
+  text-align: center;
+  float: left;
+  width: 50%;
+}
+/* line 104, ../scss/modules/userbar.scss */
+.header-news p {
+  margin: 1%;
+  color: #E27A7A;
+  font-size: 0.9em;
+}
+
+/* line 1, ../scss/modules/footer.scss */
+.footer {
+  width: 100%;
+  background: #363C43;
+  color: white;
+  z-index: 1000;
+  /* stiky footer */
+  /* 	position: relative;
+      clear:both;
+      margin-top: -150px;
+      height: 150px;
+   */
+}
+
+/* line 14, ../scss/modules/footer.scss */
+.footer-column {
+  vertical-align: top;
+  margin-top: 20px;
+  width: 22%;
+  display: inline-block;
+}
+
+/* line 22, ../scss/modules/footer.scss */
+.footer-column ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+/* line 29, ../scss/modules/footer.scss */
+.column-container {
+  padding: 20px;
+}
+
+/* line 1, ../scss/modules/connexion.scss */
+.clear {
+  clear: both;
+}
+
+/* clear float */
+/* line 3, ../scss/modules/connexion.scss */
+.formwrap {
+  width: 50%;
+  margin: 0 auto;
+}
+
+/*start-login-form*/
+/* line 8, ../scss/modules/connexion.scss */
+.login-form .contact_form {
+  width: 55%;
+  background: url("../images/border.png") no-repeat 425px 77px;
+  float: left;
+  position: relative;
+}
+
+/* line 14, ../scss/modules/connexion.scss */
+.login-form {
+  background: #fff;
+  padding: 6%;
+  margin: 5%;
+  position: relative;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -o-border-radius: 12px;
+  -moz-box-shadow: -1px 0px 26px -7px rgba(0, 0, 0, 0.3) inset;
+  -webkit-box-shadow: -1px 0px 26px -7px rgba(0, 0, 0, 0.3) inset;
+  box-shadow: -1px 0px 26px -7px rgba(0, 0, 0, 0.3) inset;
+}
+
+/* line 25, ../scss/modules/connexion.scss */
+.login-form h1 {
+  color: #474646;
+}
+
+/* line 29, ../scss/modules/connexion.scss */
+.login-form .contact_form ul {
+  list-style-type: none;
+  list-style-position: outside;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 35, ../scss/modules/connexion.scss */
+.login-form .contact_form li {
+  position: relative;
+}
+
+/* form element visual styles */
+/* line 39, ../scss/modules/connexion.scss */
+.login-form .contact_form li {
+  float: left;
+  outline: none;
+  border: 1px solid #DDDDDD;
+  color: #B6B6B6;
+  width: 78.5%;
+  font-weight: 600;
+  margin-top: 8%;
+  position: relative;
+  height: 42px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+}
+
+/* line 60, ../scss/modules/connexion.scss */
+.login-form .contact_form li:hover {
+  border: 1px solid #79B42B;
+  color: #79B42B;
+}
+
+/* line 64, ../scss/modules/connexion.scss */
+.login-form .contact_form input {
+  float: left;
+  padding: 7px 14px;
+  width: 75%;
+  border: none;
+  outline: none;
+  color: #B6B6B6;
+}
+
+/* line 74, ../scss/modules/connexion.scss */
+.login-form .contact_form p {
+  float: right;
+  padding: 8px 7px;
+  width: 9.3%;
+  cursor: pointer;
+}
+
+/* line 80, ../scss/modules/connexion.scss */
+.login-form .contact_form input[type="submit"] {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  background: #79B42B;
+  width: 79%;
+  padding: 12px;
+  letter-spacing: 1px;
+  margin: 28px 0 30px;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+/* line 101, ../scss/modules/connexion.scss */
+.login-form .contact_form input[type="submit"]:hover {
+  background: #88C470;
+}
+
+/* line 104, ../scss/modules/connexion.scss */
+.login-form .contact_form input[type="checkbox"] {
+  width: 21px;
+  vertical-align: middle;
+  padding: 5px;
+  float: left;
+}
+
+/* line 110, ../scss/modules/connexion.scss */
+.login-form .contact_form i {
+  color: #B6B6B6;
+  width: 40%;
+  float: left;
+}
+
+/* line 116, ../scss/modules/connexion.scss */
+.login-form .forgot {
+  float: right;
+  margin-right: 77px;
+  width: 35%;
+  margin-top: 4px;
+}
+
+/* line 122, ../scss/modules/connexion.scss */
+.login-form .forgot a {
+  color: #B6B6B6;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+}
+
+/* line 130, ../scss/modules/connexion.scss */
+.login-form .forgot a:hover {
+  color: #79B42B;
+}
+
+/* === Form hints === */
+/* line 134, ../scss/modules/connexion.scss */
+.login-form .form_hint {
+  color: #fff;
+  text-align: center;
+  background: #79B42B;
+  border-radius: 3px 3px 3px 3px;
+  margin-left: 8px;
+  padding: 6px 23px;
+  z-index: 999;
+  position: absolute;
+  right: -224px;
+  bottom: 3px;
+  font-weight: 100;
+  display: none;
+}
+
+/* line 149, ../scss/modules/connexion.scss */
+.login-form .form_hint::before {
+  content: '';
+  position: absolute;
+  bottom: 9px;
+  left: -9px;
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #79B42B;
+  border-top: 10px solid transparent;
+}
+
+/* line 160, ../scss/modules/connexion.scss */
+.login-form .contact_form input:focus + .form_hint {
+  display: inline;
+}
+
+/* line 161, ../scss/modules/connexion.scss */
+.login-form .contact_form input:required:valid + .form_hint {
+  color: #000;
+  background: #79B42B;
+}
+
+/* line 163, ../scss/modules/connexion.scss */
+.login-form .contact_form input:required:valid + .form_hint::before {
+  color: #28921f;
+}
+
+/*end-login-form*/
+/*start-account*/
+/* line 166, ../scss/modules/connexion.scss */
+.login-form .account {
+  float: right;
+  width: 45%;
+}
+
+/* line 170, ../scss/modules/connexion.scss */
+.login-form .account h2 a {
+  color: #71B8E4;
+  display: block;
+  font-weight: 400;
+  text-align: right;
+  margin-top: 3px;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+}
+
+/* line 183, ../scss/modules/connexion.scss */
+.login-form .account h2 a:hover {
+  color: #79B42B;
+}
+
+/* line 186, ../scss/modules/connexion.scss */
+.login-form .span {
+  margin-top: 10.4%;
+  display: block;
+  width: 100%;
+  background: #3B5998;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+}
+
+/* line 197, ../scss/modules/connexion.scss */
+.login-form .span img {
+  background: #354F88;
+  padding: 7px;
+  float: left;
+}
+
+/* line 202, ../scss/modules/connexion.scss */
+.login-form .span i {
+  color: #fff;
+  padding: 9px 14px;
+  float: left;
+  font-weight: 400;
+}
+
+/* line 209, ../scss/modules/connexion.scss */
+.login-form .span:hover {
+  background: #354F88;
+}
+
+/* line 212, ../scss/modules/connexion.scss */
+.login-form .span1 {
+  margin-top: 9%;
+  width: 100%;
+  background: #45B0E3;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+}
+
+/* line 222, ../scss/modules/connexion.scss */
+.login-form .span1 img {
+  background: #40A2D1;
+  padding: 7px;
+  float: left;
+}
+
+/* line 227, ../scss/modules/connexion.scss */
+.login-form .span1 i {
+  color: #fff;
+  padding: 9px 20px;
+  float: left;
+  font-weight: 400;
+}
+
+/* line 234, ../scss/modules/connexion.scss */
+.login-form .span1:hover {
+  background: #40A2D1;
+}
+
+/* line 237, ../scss/modules/connexion.scss */
+.login-form .span2 {
+  margin-top: 9%;
+  width: 100%;
+  background: #DE4C34;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+}
+
+/* line 247, ../scss/modules/connexion.scss */
+.login-form .span2 img {
+  background: #CE3E26;
+  padding: 7px;
+  float: left;
+}
+
+/* line 252, ../scss/modules/connexion.scss */
+.login-form .span2 i {
+  color: #fff;
+  padding: 9px 17px;
+  float: left;
+  font-weight: 400;
+}
+
+/* line 259, ../scss/modules/connexion.scss */
+.login-form .span2:hover {
+  background: #CE3E26;
+}
+
+/*end-account*/
+/*start-footer*/
+/* line 264, ../scss/modules/connexion.scss */
+.login-form .footer p {
+  color: #fff;
+  display: block;
+  font-weight: 400;
+  text-align: center;
+  padding: 2em 0 1em;
+}
+
+/* line 272, ../scss/modules/connexion.scss */
+.login-form .footer p a {
+  color: #68B74A;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+}
+
+/* line 279, ../scss/modules/connexion.scss */
+.login-form .footer p a:hover {
+  color: #fff;
+}
+
+/*end-footer*/
+/*start-checkbox*/
+/* line 284, ../scss/modules/connexion.scss */
+.login-form .checkbox {
+  margin-bottom: 4px;
+  padding-left: 27px;
+  line-height: 27px;
+  color: #B6B6B6;
+  cursor: pointer;
+}
+
+/* line 292, ../scss/modules/connexion.scss */
+.login-form .login-form .checkbox:last-child {
+  margin-bottom: 0;
+}
+
+/* line 295, ../scss/modules/connexion.scss */
+.login-form .checkbox input {
+  position: absolute;
+  left: -9999px;
+}
+
+/* line 300, ../scss/modules/connexion.scss */
+.login-form .checkbox i {
+  position: absolute;
+  bottom: 9px;
+  left: 0;
+  display: block;
+  width: 13px;
+  height: 13px;
+  outline: none;
+  border: 2px solid #DDDDDD;
+  background: #DDDDDD;
+}
+
+/* line 311, ../scss/modules/connexion.scss */
+.login-form .checkbox input + i:after {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.1s;
+  -o-transition: opacity 0.1s;
+  -ms-transition: opacity 0.1s;
+  -moz-transition: opacity 0.1s;
+  -webkit-transition: opacity 0.1s;
+}
+
+/* line 320, ../scss/modules/connexion.scss */
+.login-form .checkbox input + i:after {
+  content: '';
+  background: url("../images/mark.png") no-repeat 3px 2px;
+  top: -1px;
+  left: -1px;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+}
+
+/* line 331, ../scss/modules/connexion.scss */
+.login-form .checkbox input:checked + i:after {
+  opacity: 1;
+}
+
+/* line 334, ../scss/modules/connexion.scss */
+.login-form .checkbox {
+  float: left;
+  margin-right: 30px;
+}
+
+/* line 338, ../scss/modules/connexion.scss */
+.login-form .checkbox:last-child {
+  margin-bottom: 4px;
+}
+
+/*end-checkbox*/
+/* line 1, ../scss/modules/magasinFiche.scss */
+.add-to-list {
+  margin: 20px 0;
+  padding-left: 6%;
+  background: url("../images/add.png") left/5% no-repeat;
+}
+
+/* line 7, ../scss/modules/magasinFiche.scss */
+.thumbs-vote {
+  height: 50px;
+}
+/* line 10, ../scss/modules/magasinFiche.scss */
+.thumbs-vote img {
+  height: inherit;
+}
+
+/* line 15, ../scss/modules/magasinFiche.scss */
+.obj-rate {
+  margin-bottom: 15px;
+}
+
+/* line 21, ../scss/modules/magasinFiche.scss */
+table tr[data-href] {
+  cursor: pointer;
+}
+
+/* line 26, ../scss/modules/magasinFiche.scss */
+.panel-table td {
+  width: 50%;
+}
+/* line 29, ../scss/modules/magasinFiche.scss */
+.panel-table tr:nth-child(2n+1) {
+  background: #eaedf1;
+}
+
+/* line 34, ../scss/modules/magasinFiche.scss */
+#tab2, #tab3, #tab4 {
+  display: none;
+}
+
+/* line 38, ../scss/modules/magasinFiche.scss */
+.market-img {
+  text-align: center;
+}
+/* line 40, ../scss/modules/magasinFiche.scss */
+.market-img img {
+  max-width: 100%;
+}
+
+/* line 1, ../scss/modules/items-list.scss */
+.items-list {
+  margin-bottom: 30px;
+  padding: 10px;
+  height: 200px;
+}
+/* line 5, ../scss/modules/items-list.scss */
+.items-list.promotions {
+  background-color: #F2F2F2;
+}
+/* line 8, ../scss/modules/items-list.scss */
+.items-list .item-box {
+  height: 100%;
+  min-height: 100px;
+  padding: 0 10px;
+  border-right: 2px solid #D0D2D5;
+}
+/* line 13, ../scss/modules/items-list.scss */
+.items-list .item-box:last-child {
+  border: none;
+}
+/* line 17, ../scss/modules/items-list.scss */
+.items-list .item-thumb {
+  width: 100%;
+  vertical-align: middle;
+}
+/* line 22, ../scss/modules/items-list.scss */
+.items-list .item-name {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+/* line 26, ../scss/modules/items-list.scss */
+.items-list .item-price {
+  display: block;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #363C43;
+  background-color: #dd4343;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+/* line 37, ../scss/modules/items-list.scss */
+.items-list .link-container {
+  margin-top: 20px;
+  /*     a{
+        color: lightblue;
+      } */
+}
+/* line 43, ../scss/modules/items-list.scss */
+.items-list h3 {
+  margin: 0 0 15px -10px;
+  color: gray;
+}
+/* line 47, ../scss/modules/items-list.scss */
+.items-list .item-list-thumb {
+  height: 100px;
+}
+
+/* 
+.item-box:nth-last-child(1){
+  border: none;
+}
+ */
+/* line 1, ../scss/modules/user_fiche.scss */
+.l-user-fiche {
+  line-height: 1.5em;
+  padding: 20px;
+}
+/* line 6, ../scss/modules/user_fiche.scss */
+.l-user-fiche .title {
+  padding: 20px 20px;
+  margin-bottom: 30px;
+  background-color: #dd4343;
+  color: white;
+}
+/* line 13, ../scss/modules/user_fiche.scss */
+.l-user-fiche .subtitle {
+  border-bottom: 1px solid black;
+}
+/* line 17, ../scss/modules/user_fiche.scss */
+.l-user-fiche .line {
+  margin-bottom: 30px;
+}
+/* line 22, ../scss/modules/user_fiche.scss */
+.l-user-fiche .form .input {
+  height: 60px;
+}
+/* line 26, ../scss/modules/user_fiche.scss */
+.l-user-fiche .form .labels {
+  text-align: center;
+}
+/* line 34, ../scss/modules/user_fiche.scss */
+.l-user-fiche .friends .friend .avatar {
+  width: 90%;
+}
+/* line 38, ../scss/modules/user_fiche.scss */
+.l-user-fiche .friends .friend .username {
+  text-align: center;
+}
+
+/* line 1, ../scss/modules/carroussel.scss */
+.carousel {
+  max-height: 500px;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* line 7, ../scss/modules/carroussel.scss */
+.carousel img {
+  width: 100%;
+  display: cover;
+}
+
+/* line 1, ../scss/modules/productCategories.scss */
+.product-categories {
+  padding: 20px;
+}
+/* line 3, ../scss/modules/productCategories.scss */
+.product-categories a {
+  font-size: 1.3em;
+  text-decoration: none;
+}
+
+/* line 9, ../scss/modules/productCategories.scss */
+.cat-row {
+  min-height: 100px;
+  margin: 20px 0px;
+}
+
+/* line 14, ../scss/modules/productCategories.scss */
+.cat-name {
+  text-align: center;
+  border-right: 1px solid #eaedf1;
+}
+
+/* .random-color{
+	color: orange;
+	&:hover{
+		color: none;
+	}
+
+} */
+/* line 1, ../scss/modules/categorieProducts.scss */
+.products-list .items-list {
+  margin-bottom: 20px;
+  height: 150px;
+}
+/* line 5, ../scss/modules/categorieProducts.scss */
+.products-list .items-list .item-box {
+  height: 100%;
+  min-height: 100px;
+  padding: 0 10px;
+  border-right: 2px solid #D0D2D5;
+}
+/* line 10, ../scss/modules/categorieProducts.scss */
+.products-list .items-list .item-box:last-child {
+  border: none;
+}
+/* line 15, ../scss/modules/categorieProducts.scss */
+.products-list .items-list .item-price {
+  display: block;
+  width: 150%;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #363C43;
+  background-color: #dd4343;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding-left: 100px;
+  margin-left: -50%;
+}
+
+/* line 2, ../scss/modules/starRating.scss */
+.rating-loading {
+  width: 25px;
+  height: 25px;
+  font-size: 0px;
+  color: #fff;
+  background: transparent url("../img/loading.gif") top left no-repeat;
+  border: none;
+}
+
+/*
+ * Stars
+ */
+/* line 13, ../scss/modules/starRating.scss */
+.rating-fa {
+  font-family: 'FontAwesome';
+  padding-left: 1px;
+}
+
+/* line 18, ../scss/modules/starRating.scss */
+.rating-fa .rating-stars:before {
+  padding-left: 1px;
+}
+
+/* line 22, ../scss/modules/starRating.scss */
+.rating-gly {
+  font-family: 'Glyphicons Halflings';
+}
+
+/* line 26, ../scss/modules/starRating.scss */
+.rating-gly-star {
+  font-family: 'Glyphicons Halflings';
+  padding-left: 2px;
+}
+
+/* line 31, ../scss/modules/starRating.scss */
+.rating-gly-star .rating-stars:before {
+  padding-left: 2px;
+}
+
+/* line 35, ../scss/modules/starRating.scss */
+.rating-lg .rating-gly-star, .rating-lg .rating-gly-star .rating-stars:before {
+  padding-left: 4px;
+}
+
+/* line 39, ../scss/modules/starRating.scss */
+.rating-xl .rating-gly-star, .rating-xl .rating-gly-star .rating-stars:before {
+  padding-left: 2px;
+}
+
+/* line 43, ../scss/modules/starRating.scss */
+.rating-active {
+  cursor: default;
+}
+
+/* line 47, ../scss/modules/starRating.scss */
+.rating-disabled {
+  cursor: not-allowed;
+}
+
+/* line 51, ../scss/modules/starRating.scss */
+.rating-uni {
+  font-size: 1.2em;
+  margin-top: -5px;
+}
+
+/* line 56, ../scss/modules/starRating.scss */
+.rating-container {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  color: #e3e3e3;
+  overflow: hidden;
+}
+
+/* line 64, ../scss/modules/starRating.scss */
+.rating-container:before {
+  content: attr(data-content);
+}
+
+/* line 68, ../scss/modules/starRating.scss */
+.rating-container .rating-stars {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fde16d;
+  transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -webkit-transition: all 0.25s ease-out;
+}
+
+/* line 81, ../scss/modules/starRating.scss */
+.rating-container .rating-stars:before {
+  content: attr(data-content);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+}
+
+/* line 86, ../scss/modules/starRating.scss */
+.rating-container-rtl {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  overflow: hidden;
+  color: #fde16d;
+}
+
+/* line 94, ../scss/modules/starRating.scss */
+.rating-container-rtl:before {
+  content: attr(data-content);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+}
+
+/* line 99, ../scss/modules/starRating.scss */
+.rating-container-rtl .rating-stars {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #e3e3e3;
+  transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -webkit-transition: all 0.25s ease-out;
+}
+
+/* line 112, ../scss/modules/starRating.scss */
+.rating-container-rtl .rating-stars:before {
+  content: attr(data-content);
+}
+
+/**
+ * Rating sizes
+ */
+/* line 119, ../scss/modules/starRating.scss */
+.rating-xl {
+  font-size: 4.89em;
+}
+
+/* line 123, ../scss/modules/starRating.scss */
+.rating-lg {
+  font-size: 3.91em;
+}
+
+/* line 127, ../scss/modules/starRating.scss */
+.rating-md {
+  font-size: 3.13em;
+}
+
+/* line 131, ../scss/modules/starRating.scss */
+.rating-sm {
+  font-size: 2.5em;
+}
+
+/* line 135, ../scss/modules/starRating.scss */
+.rating-xs {
+  font-size: 2em;
+}
+
+/**
+ * Clear rating button
+ */
+/* line 142, ../scss/modules/starRating.scss */
+.star-rating .clear-rating, .star-rating-rtl .clear-rating {
+  color: #aaa;
+  cursor: not-allowed;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 60%;
+}
+
+/* line 150, ../scss/modules/starRating.scss */
+.clear-rating-active {
+  cursor: pointer !important;
+}
+
+/* line 154, ../scss/modules/starRating.scss */
+.clear-rating-active:hover {
+  color: #843534;
+}
+
+/* line 158, ../scss/modules/starRating.scss */
+.star-rating .clear-rating {
+  padding-right: 5px;
+}
+
+/**
+ * Caption
+ */
+/* line 165, ../scss/modules/starRating.scss */
+.star-rating .caption, .star-rating-rtl .caption {
+  color: #999;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 55%;
+}
+
+/* line 172, ../scss/modules/starRating.scss */
+.star-rating .caption {
+  padding-left: 5px;
+}
+
+/* line 176, ../scss/modules/starRating.scss */
+.star-rating-rtl .caption {
+  padding-right: 5px;
+}
+
+/* line 180, ../scss/modules/starRating.scss */
+.obj-finalrate {
+  color: #dd4343;
+  line-height: 3em;
+}
+
+/* Product Search Result Page*/
+/* line 3, ../scss/modules/search.scss */
+.search-tab {
+  width: 100%;
+  display: table;
+  background-color: white;
+}
+
+/* line 11, ../scss/modules/search.scss */
+.search-tab > div {
+  display: table-cell;
+}
+
+/* line 19, ../scss/modules/search.scss */
+.search-nav {
+  padding: 0 20px;
+  background-color: #eaedf1;
+  display: table-cell;
+}
+
+/* line 27, ../scss/modules/search.scss */
+.search-res {
+  background-color: white;
+  padding: 20px;
+  display: table-cell;
+}
+
+/* Search Result Product thumbnail*/
+/* line 37, ../scss/modules/search.scss */
+.search-res-product {
+  border: 1px solid #eaedf1;
+  height: 320px;
+  overflow: hidden;
+  margin-bottom: 10%;
+  float: left;
+}
+/* line 38, ../scss/modules/search.scss */
+.search-res-product img {
+  width: auto;
+  height: auto;
+  max-height: 150px;
+  max-width: 95%;
+}
+/* line 46, ../scss/modules/search.scss */
+.search-res-product .product-price {
+  width: 100%;
+  padding: 1%;
+  display: block;
+  z-index: 10;
+  text-align: center;
+  background-color: #dd4343;
+  color: white;
+}
+/* line 59, ../scss/modules/search.scss */
+.search-res-product .product-info {
+  padding: 3%;
+  text-align: center;
+}
+/* line 64, ../scss/modules/search.scss */
+.search-res-product .product-title {
+  max-height: 50px;
+  overflow: hidden;
+}
+/* line 69, ../scss/modules/search.scss */
+.search-res-product .product-rate {
+  font-size: 0.7em;
+  pointer-events: none;
+  cursor: default;
+}
+/* line 75, ../scss/modules/search.scss */
+.search-res-product .product-interact {
+  height: 30px;
+  min-width: 100%;
+}
+/* line 79, ../scss/modules/search.scss */
+.search-res-product .product-interact img {
+  height: 20px;
+  margin: 0 10px;
+  width: auto;
+}
+
+/* line 95, ../scss/modules/search.scss */
+.search-res-product-thumbnail {
+  height: 150px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Search Result NAVIGATION BAR */
+/* line 1, ../scss/modules/searchSelector.scss */
+.sSelector {
+  background-color: #F7F7F7;
+}
+/* line 5, ../scss/modules/searchSelector.scss */
+.sSelector img {
+  width: 50px;
+}
+/* line 10, ../scss/modules/searchSelector.scss */
+.sSelector .sbutton1 {
+  margin: 0 5%;
+  -moz-box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  background: url(http://www.comerciolocal.eu/pt/images/icone_cesta.gif) no-repeat 50% 50%/40%, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2VkNjM2MyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2RkNDM0MyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: url(http://www.comerciolocal.eu/pt/images/icone_cesta.gif) no-repeat 50% 50%/40%, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(5%, #ed6363), color-stop(100%, #dd4343));
+  background: url(http://www.comerciolocal.eu/pt/images/icone_cesta.gif) no-repeat 50% 50%/40%, -moz-linear-gradient(top, #ed6363 5%, #dd4343 100%);
+  background: url(http://www.comerciolocal.eu/pt/images/icone_cesta.gif) no-repeat 50% 50%/40%, -webkit-linear-gradient(top, #ed6363 5%, #dd4343 100%);
+  background: url(http://www.comerciolocal.eu/pt/images/icone_cesta.gif) no-repeat 50% 50%/40%, linear-gradient(to bottom, #ed6363 5%, #dd4343 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed6363', endColorstr='$red',GradientType=0);
+  background-color: #ed6363;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  border: 1px solid #ed7979;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6%;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #e83c3c;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+/* line 29, ../scss/modules/searchSelector.scss */
+.sSelector .sbutton1:hover {
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: white;
+  background: url(http://www.comerciolocal.eu/pt/images/icone_cesta.gif) no-repeat 50% 50%/50%, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2RkNDM0MyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VkNjM2MyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: url(http://www.comerciolocal.eu/pt/images/icone_cesta.gif) no-repeat 50% 50%/50%, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(5%, #dd4343), color-stop(100%, #ed6363));
+  background: url(http://www.comerciolocal.eu/pt/images/icone_cesta.gif) no-repeat 50% 50%/50%, -moz-linear-gradient(top, #dd4343 5%, #ed6363 100%);
+  background: url(http://www.comerciolocal.eu/pt/images/icone_cesta.gif) no-repeat 50% 50%/50%, -webkit-linear-gradient(top, #dd4343 5%, #ed6363 100%);
+  background: url(http://www.comerciolocal.eu/pt/images/icone_cesta.gif) no-repeat 50% 50%/50%, linear-gradient(to bottom, #dd4343 5%, #ed6363 100%);
+  background-color: #dd4343;
+}
+/* line 35, ../scss/modules/searchSelector.scss */
+.sSelector .sbutton1:active {
+  position: relative;
+  top: 1px;
+}
+/* line 40, ../scss/modules/searchSelector.scss */
+.sSelector .sbutton2 {
+  margin: 0 5%;
+  -moz-box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  background: url(http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/256/shop-icon.png) no-repeat 50% 50%/40%, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2VkNjM2MyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2RkNDM0MyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: url(http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/256/shop-icon.png) no-repeat 50% 50%/40%, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(5%, #ed6363), color-stop(100%, #dd4343));
+  background: url(http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/256/shop-icon.png) no-repeat 50% 50%/40%, -moz-linear-gradient(top, #ed6363 5%, #dd4343 100%);
+  background: url(http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/256/shop-icon.png) no-repeat 50% 50%/40%, -webkit-linear-gradient(top, #ed6363 5%, #dd4343 100%);
+  background: url(http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/256/shop-icon.png) no-repeat 50% 50%/40%, linear-gradient(to bottom, #ed6363 5%, #dd4343 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed6363', endColorstr='$red',GradientType=0);
+  background-color: #ed6363;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  border: 1px solid #ed7979;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6%;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #e83c3c;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+/* line 58, ../scss/modules/searchSelector.scss */
+.sSelector .sbutton2:hover {
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: white;
+  background: url(http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/256/shop-icon.png) no-repeat 50% 50%/50%, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2RkNDM0MyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VkNjM2MyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: url(http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/256/shop-icon.png) no-repeat 50% 50%/50%, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(5%, #dd4343), color-stop(100%, #ed6363));
+  background: url(http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/256/shop-icon.png) no-repeat 50% 50%/50%, -moz-linear-gradient(top, #dd4343 5%, #ed6363 100%);
+  background: url(http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/256/shop-icon.png) no-repeat 50% 50%/50%, -webkit-linear-gradient(top, #dd4343 5%, #ed6363 100%);
+  background: url(http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/256/shop-icon.png) no-repeat 50% 50%/50%, linear-gradient(to bottom, #dd4343 5%, #ed6363 100%);
+  background-color: #dd4343;
+}
+/* line 64, ../scss/modules/searchSelector.scss */
+.sSelector .sbutton2:active {
+  position: relative;
+  top: 1px;
+}
+/* line 69, ../scss/modules/searchSelector.scss */
+.sSelector .sbutton3 {
+  margin: 0 5%;
+  -moz-box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+  background: url(http://www.icone-png.com/png/29/28550.png) no-repeat 50% 50%/40%, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2VkNjM2MyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2RkNDM0MyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: url(http://www.icone-png.com/png/29/28550.png) no-repeat 50% 50%/40%, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(5%, #ed6363), color-stop(100%, #dd4343));
+  background: url(http://www.icone-png.com/png/29/28550.png) no-repeat 50% 50%/40%, -moz-linear-gradient(top, #ed6363 5%, #dd4343 100%);
+  background: url(http://www.icone-png.com/png/29/28550.png) no-repeat 50% 50%/40%, -webkit-linear-gradient(top, #ed6363 5%, #dd4343 100%);
+  background: url(http://www.icone-png.com/png/29/28550.png) no-repeat 50% 50%/40%, linear-gradient(to bottom, #ed6363 5%, #dd4343 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed6363', endColorstr='$red',GradientType=0);
+  background-color: #ed6363;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  border: 1px solid #ed7979;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6%;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #e83c3c;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+/* line 88, ../scss/modules/searchSelector.scss */
+.sSelector .sbutton3:hover {
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: white;
+  background: url(http://www.icone-png.com/png/29/28550.png) no-repeat 50% 50%/50%, url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iI2RkNDM0MyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VkNjM2MyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: url(http://www.icone-png.com/png/29/28550.png) no-repeat 50% 50%/50%, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(5%, #dd4343), color-stop(100%, #ed6363));
+  background: url(http://www.icone-png.com/png/29/28550.png) no-repeat 50% 50%/50%, -moz-linear-gradient(top, #dd4343 5%, #ed6363 100%);
+  background: url(http://www.icone-png.com/png/29/28550.png) no-repeat 50% 50%/50%, -webkit-linear-gradient(top, #dd4343 5%, #ed6363 100%);
+  background: url(http://www.icone-png.com/png/29/28550.png) no-repeat 50% 50%/50%, linear-gradient(to bottom, #dd4343 5%, #ed6363 100%);
+  background-color: #dd4343;
+}
+/* line 94, ../scss/modules/searchSelector.scss */
+.sSelector .sbutton3:active {
+  position: relative;
+  top: 1px;
+}
+
+/* line 3, ../scss/modules/submit-form.scss */
+.submit-form button[type="submit"] {
+  margin: 5% auto;
+  width: 50%;
+  display: block;
+  background-color: #dd4343;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: none;
+  padding: 1%;
+  color: white;
+}
+/* line 12, ../scss/modules/submit-form.scss */
+.submit-form button[type="submit"]:hover {
+  background-color: #E44E4E;
+}
+/* line 18, ../scss/modules/submit-form.scss */
+.submit-form .form-group {
+  margin-bottom: 3%;
+}
+
+/* line 1, ../scss/modules/lists.scss */
+.products-list {
+  padding: 2%;
+  width: 100%;
+}
+/* line 5, ../scss/modules/lists.scss */
+.products-list div {
+  overflow: hidden;
+}
+/* line 6, ../scss/modules/lists.scss */
+.products-list dt {
+  font-size: 1.2em;
+}
+/* line 7, ../scss/modules/lists.scss */
+.products-list .product-row {
+  padding: 1% 0;
+  height: 150px;
+  border-bottom: 1px solid lightgray;
+}
+/* line 16, ../scss/modules/lists.scss */
+.products-list .product-img {
+  height: 100%;
+  text-align: center;
+}
+/* line 20, ../scss/modules/lists.scss */
+.products-list .product-img img {
+  display: inline-block;
+  vertical-align: middle;
+  margin: auto;
+  max-width: 90%;
+  max-height: 100%;
+}
+/* line 30, ../scss/modules/lists.scss */
+.products-list .product-price span {
+  display: block;
+  margin: 25%;
+}
+/* line 36, ../scss/modules/lists.scss */
+.products-list .product-remove {
+  height: 100%;
+  background: url(http://fr.fordesigner.com/imguploads/Image/cjbc/zcool/png20080526/1211771352.png) no-repeat 50% 50%/30%, none;
+}
+/* line 39, ../scss/modules/lists.scss */
+.products-list .product-remove:hover {
+  background: url(http://fr.fordesigner.com/imguploads/Image/cjbc/zcool/png20080526/1211771352.png) no-repeat 50% 50%/40%, none;
+}
+
+/* line 45, ../scss/modules/lists.scss */
+.list-management {
+  text-align: center;
+}
+/* line 48, ../scss/modules/lists.scss */
+.list-management .list-manager, .list-management .managerlink {
+  display: none;
+}
+/* line 52, ../scss/modules/lists.scss */
+.list-management .active {
+  display: inline;
+  width: 100%;
+}

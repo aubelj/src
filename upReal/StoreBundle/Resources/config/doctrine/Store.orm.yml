@@ -1,0 +1,35 @@
+upReal\StoreBundle\Entity\Store:
+    type: entity
+    table: store
+    repositoryClass: upReal\StoreBundle\Entity\StoreRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '20'
+        website:
+            type: string
+            length: '50'
+        idAddress:
+            type: integer
+            column: id_address
+        idCompany:
+            type: integer
+            column: id_company
+    manyToOne:
+        address:
+          targetEntity: upReal\CoreBundle\Entity\Address
+          joinColumn:
+            name: id_address
+            referencedColumnName: id
+        company:
+          targetEntity: upReal\CompanyBundle\Entity\Company
+          joinColumn:
+            name: id_company
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

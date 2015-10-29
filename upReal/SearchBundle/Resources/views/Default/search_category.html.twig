@@ -1,0 +1,48 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+	<div class="l-container">
+		<h1>Au rayon {{category|capitalize}}</h1>
+		<div class="products-list">
+		    <div class="items-list categorie-products">
+				{% for product in products %}
+					{% if loop.index0 == 0 or loop.index0 is divisibleby(3) %}
+				    	<div class="row">
+					{% endif %}
+				        <div class="col-xs-4 item-box">
+			              <div class="row">
+			                <div class="col-xs-12">
+			                  <div class="col-xs-4 item-list-thumb">
+								{% if product.product.picture %}
+									<img src='{{ asset("/" ~ product.product.getWebPath()) }}' class="item-thumb" style="width:145px;height:145px"></img>
+		                        {% else %}
+		                            {% image '@URProductBundle/Resources/public/images/nopic.jpg' %}
+		                                <img src="{{ asset_url }}" class="item-thumb" style="" />
+		                            {% endimage %}
+								{% endif %}
+			                  </div>
+			                  <div class="col-xs-8">
+			                    <p class="item-name">
+			                    	<a href="{{ path('ur_product_view', { 'id': product.product.id }) }}">
+			                      		{{ product.product.name }}
+			                      	</a>
+			                    </p>
+			                    <br>
+			                    <div class="item-rating">
+
+			                    </div>
+			                    <div class="item-price">
+			                      /
+			                    </div>
+			                  </div>
+			                </div>
+				          </div>
+				        </div>
+					{% if loop.index is divisibleby(3) %}
+						</div>
+					{% endif %}
+				{% endfor %}		
+		    </div>
+		</div>
+	</div>
+{% endblock %}

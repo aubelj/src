@@ -1,0 +1,41 @@
+{% extends "URAdminBundle::adminLayout.html.twig" %}
+
+{% block currentPage %}
+	<h1>Users administration panel</h1>
+	<table>
+		   	<tr>
+		   		<th>Username</th>
+		   		<th>Email</th>
+		   		<th>Etat du compte</th>
+		   		<th></th>
+		   		<th></th>
+		   	</tr>
+	    {% for user in users %}
+		   	<tr>
+				<td>
+					<a href="{{ path('ur_user_profile', {'id':user.id}) }}">
+						{{ user.username }}
+					</a>
+				</td>
+				<td>{{ user.email }}</td>
+				<td>{{ user.active }}</td>
+				<td>
+					<a href="{{ path('ur_admin_user_delete', {'id':user.id}) }}" onclick="return confirm('Cet utilisateur et toutes ses dépendances vont être supprimés. Continuer ?')">
+						<button>Delete</button>
+					</a>
+				</td>
+				<td>
+					{% if (user.active == 1) %}
+						<a href="{{ path('ur_admin_user_active', {'id':user.id, 'newStatus':0}) }}"onclick="return confirm('Le compte de cet utilisateur sera désactivé. Continuer ?')">
+						<button>Désactiver</button>
+					{% elseif (user.active == 0) %}
+						<a href="{{ path('ur_admin_user_active', {'id':user.id, 'newStatus':1}) }}"onclick="return confirm('Le compte de cet utilisateur sera activé. Continuer ?')">
+						<button>Activer</button>
+					{% endif %}
+					</a>
+				</td>
+			</tr>
+	    {% endfor %}
+
+	</table>
+{% endblock %}

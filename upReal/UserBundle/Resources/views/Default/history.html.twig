@@ -1,0 +1,63 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}	
+    <h2>Historique personnel</h2>
+    {% for event in events %}
+        <div>
+            <dl>
+                <dt>{{ event.date|date }}</dt>
+                <dd>
+                    {% if event.actionType == 1 %}
+                        <a href="{{ path('ur_user_profile', {'id': event.user.id}) }}">{{ event.user.username }}</a> a consulté un
+                        {% if event.idType == 1 %}
+                            <a href="{{ path('ur_user_profile', {'id': event.idTarget}) }}"> utilisateur</a>
+                        {% elseif event.idType == 2 %}
+                            <a href="{{ path('ur_product_view', {'id': event.idTarget}) }}"> produit</a>
+                        {% endif %}
+                    {% endif %}
+                    {% if event.actionType == 2 %}
+                        <a href="{{ path('ur_user_profile', {'id': event.user.id}) }}">{{ event.user.username }}</a> aime un
+                        {% if event.idType == 1 %}
+                            <a href="{{ path('ur_user_profile', {'id': event.idTarget}) }}"> utilisateur</a>
+                        {% elseif event.idType == 2 %}
+                            <a href="{{ path('ur_product_view', {'id': event.idTarget}) }}"> produit</a>
+                        {% endif %}
+                    {% endif %}
+                    {% if event.actionType == 3 %}
+                        <a href="{{ path('ur_user_profile', {'id': event.user.id}) }}">{{ event.user.username }}</a> a attribué une note négative à un
+                        {% if event.idType == 1 %}
+                            <a href="{{ path('ur_user_profile', {'id': event.idTarget}) }}"> utilisateur</a>
+                        {% elseif event.idType == 2 %}
+                            <a href="{{ path('ur_product_view', {'id': event.idTarget}) }}"> produit</a>
+                        {% endif %}
+                    {% endif %}
+                    {% if event.actionType == 4 %}
+                        <a href="{{ path('ur_user_profile', {'id': event.user.id}) }}">{{ event.user.username }}</a> n'aime plus un
+                        {% if event.idType == 1 %}
+                            <a href="{{ path('ur_user_profile', {'id': event.idTarget}) }}"> utilisateur</a>
+                        {% elseif event.idType == 2 %}
+                            <a href="{{ path('ur_product_view', {'id': event.idTarget}) }}"> produit</a>
+                        {% endif %}
+                    {% endif %}
+                    {% if event.actionType == 6 %}
+                        <a href="{{ path('ur_user_profile', {'id': event.user.id}) }}">{{ event.user.username }}</a> a commenté un
+                        {% if event.idType == 1 %}
+                            <a href="{{ path('ur_user_profile', {'id': event.idTarget}) }}"> utilisateur</a>
+                        {% elseif event.idType == 2 %}
+                            <a href="{{ path('ur_product_view', {'id': event.idTarget}) }}"> produit</a>
+                        {% endif %}
+                    {% endif %}
+                    {% if event.actionType == 7 %}
+                        <a href="{{ path('ur_user_profile', {'id': event.user.id}) }}">{{ event.user.username }}</a> a modifié son profil.
+                    {% endif %}
+                </dd>
+            </dl>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block scriptSection %}
+    {% javascripts '@URUserBundle/Resources/public/js/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

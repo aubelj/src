@@ -1,0 +1,59 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+    <style>
+      #map-canvas {
+        width: 500px;
+        height: 400px;
+      }
+    </style>
+
+	<b>{{ store.name }}</b>
+	<br>
+	{{ store.website }}
+	<br>
+	{% if mapAddress is not null %}
+		Addresse : {{ mapAddress }}
+		<br>
+		<div id="map-canvas"></div>
+	{% endif %}
+{% endblock %}
+
+{% block scriptSection %}
+	{% if store.address.city is not null %}
+	    <script src="https://maps.googleapis.com/maps/api/js"></script>
+	    <script>
+		    var geocoder, map;
+
+		    function initialize() {
+		        var mapCanvas = document.getElementById('map-canvas');
+		        var mapOptions = {
+		          mapTypeId: google.maps.MapTypeId.ROADMAP
+		        }
+		        var map = new google.maps.Map(mapCanvas, mapOptions)
+		        codeAddress('{{ mapAddress }}');
+		    }
+
+		    function codeAddress(address) {
+			    geocoder = new google.maps.Geocoder();
+			    geocoder.geocode({'address': address}, function(results, status) {
+			        if (status == google.maps.GeocoderStatus.OK) {
+			            var myOptions = {
+			                zoom: 11,
+			                center: results[0].geometry.location,
+			                mapTypeId: google.maps.MapTypeId.ROADMAP
+			            }
+			            map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
+
+			            var marker = new google.maps.Marker({
+			                map: map,
+			                position: results[0].geometry.location
+			            });
+			        }
+			    });
+			}
+
+			google.maps.event.addDomListener(window, 'load', initialize);
+	    </script>
+   	{% endif %}
+{% endblock %}

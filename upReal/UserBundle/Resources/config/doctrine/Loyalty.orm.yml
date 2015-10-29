@@ -1,0 +1,31 @@
+upReal\UserBundle\Entity\Loyalty:
+    type: entity
+    table: null
+    repositoryClass: upReal\UserBundle\Entity\LoyaltyRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        frontCover:
+            type: string
+            length: '45'
+            column: front_cover
+        backCover:
+            type: string
+            length: '45'
+            column: back_cover
+    oneToOne:
+        store:
+            targetEntity: upReal\StoreBundle\Entity\Store
+            joinColumn:
+                name: id_store
+                referencedColumnName: id
+        company:
+            targetEntity: upReal\CompanyBundle\Entity\Company
+            joinColumn:
+                name: id_company
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

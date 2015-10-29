@@ -1,0 +1,17 @@
+upReal\UserBundle\Entity\Karma:
+    type: entity
+    table: karma
+    repositoryClass: upReal\UserBundle\Entity\KarmaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+            column: id_user
+        value:
+            type: integer
+    lifecycleCallbacks: {  }

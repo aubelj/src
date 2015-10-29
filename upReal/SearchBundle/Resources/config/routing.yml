@@ -1,0 +1,7 @@
+ur_search:
+    path:     /search/
+    defaults: { _controller: URSearchBundle:Default:index }
+
+ur_search_category:
+    path:     /product/category/{idCategory}/{category}/
+    defaults: { _controller: URSearchBundle:Default:category }

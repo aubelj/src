@@ -1,0 +1,18 @@
+upReal\CompanyBundle\Entity\Company:
+    type: entity
+    table: company
+    repositoryClass: upReal\CompanyBundle\Entity\CompanyRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '50'
+        website:
+            type: string
+            length: '50'
+    lifecycleCallbacks: {  }

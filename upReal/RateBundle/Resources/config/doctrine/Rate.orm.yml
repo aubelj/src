@@ -1,0 +1,30 @@
+upReal\RateBundle\Entity\Rate:
+    type: entity
+    table: rate
+    repositoryClass: upReal\RateBundle\Entity\RateRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+            column: id_user
+        mark:
+            type: integer
+        commentary:
+            type: string
+            length: 255
+        date:
+            type: datetime
+        active:
+            type: boolean
+    oneToOne:
+        user:
+            targetEntity: upReal\UserBundle\Entity\User
+            joinColumn:
+                name: id_user
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

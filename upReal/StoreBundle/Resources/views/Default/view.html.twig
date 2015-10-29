@@ -1,0 +1,189 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+	<h2 class="text-left">{{ store.name }}</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<img src="">	
+		</div>
+		<div class="no-style col-md-6">
+			<ul>
+				{% if mapAddress is not null %}
+					<li><b>Addresse :</b></li>
+					<li>{{ mapAddress }}</li>
+				{% endif %}
+				<li>Site web: {{ store.website }}</li>
+			</ul>
+		</div>		
+	</div>
+
+	<div style="margin-top:30px">
+		<div class="col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation" class="active panel-btn" data-check="tab1"><a href="#">Caratéristique</a></li>
+				<li role="presentation" class="panel-btn" data-check="tab2"><a href="#">Description</a></li>
+				<li role="presentation" class="panel-btn" data-check="tab3"><a href="#">Catalogue</a></li>
+				<li role="presentation" class="panel-btn" data-check="tab4"><a href="#">Carte</a></li>
+			</ul>
+		</div>
+		<div class="col-md-9">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+
+				<!-- Table 1-->
+				<table class="table text-center panel-table" id="tab1">
+					<tr>
+						<td>Type</td>
+						<td>Hypermaché</td>
+					</tr>
+					<tr>
+						<td>Rayons</td>
+						<td>30</td>
+					</tr>
+					<tr>
+						<td>Supeficie</td>
+						<td>423 m2</td>
+					</tr>
+					<tr>
+						<td>Drive</td>
+						<td>Oui</td>
+					</tr>
+					<tr>
+						<td>Livraison</td>
+						<td>Oui</td>
+					</tr>
+					<tr>
+						<td>Site Web</td>
+						<td>Oui</td>
+					</tr>
+				</table>
+
+
+				<!-- Table 2-->
+				<table class="table text-center panel-table" id="tab2">
+					<tr>
+						<td>tab 2</td>
+						<td>tab2</td>
+					</tr>
+					<tr>
+						<td>tab 2</td>
+						<td>tab2</td>
+					</tr>
+					<tr>
+						<td>tab 2</td>
+						<td>tab2</td>
+					</tr>
+					<tr>
+						<td>tab 2</td>
+						<td>tab2</td>
+					</tr>
+					<tr>
+						<td>tab 2</td>
+						<td>tab2</td>
+					</tr>
+					<tr>
+						<td>Site Web</td>
+						<td>Oui</td>
+					</r>
+				</table>
+				<div class="table text-center panel-table" id="tab3">
+			      <div class="items-list products">
+			        <div class="row">
+						{% for sell in sells %}
+				          <div class="col-md-4">
+				            <div class="row">
+				              <div class="item-item">
+				                <div class="row">
+				                  <div class="col-md-12">
+				                    <div class="col-md-4">
+										<a href="{{ path('ur_product_view', {'id': sell.product.id})}}">
+										{% if sell.product.picture %}
+											<img src='{{ asset("/" ~ sell.product.getWebPath()) }}' class="item-thumb" width='90px' height='65px'></img>
+							            {% else %}
+							                {% image '@URProductBundle/Resources/public/images/nopic.jpg' %}
+							                    <img src="{{ asset_url }}" class="item-thumb" width='90px' height='80px'/>
+							                {% endimage %}
+										{% endif %}
+	          							</a>
+				                    </div>
+				                    <div class="col-md-8">
+				                      <p class="item-name">{{ sell.product.name }}</p>
+				                      <div class="item-price">
+			                          	{{ sell.price }}€
+				                      </div>
+				                    </div>
+				                  </div>
+				                </div>
+				              </div>
+				            </div>
+				          </div>
+				        {% endfor %}
+			        </div>
+			        <p class="text-right link-container">
+			          <a href="#" class="text-right">Voir tout >></a>
+			        </p>
+			      </div>
+			    </div>
+
+				<!-- Table 3-->
+				<table class='panel-table' id='tab4'>
+					{% if mapAddress is not null %}
+						<div id="map-canvas"></div>
+					{% else %}
+						<span>Adresse non renseignée</span>
+					{% endif %}
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <style>
+      #map-canvas {
+        width: 845.50px;
+        height: 400px;
+      }
+    </style>
+{% endblock %}
+
+{% block scriptSection %}
+    {% javascripts '@URStoreBundle/Resources/public/js/basics.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+	{% if store.address.city is not null %}
+	    <script src="https://maps.googleapis.com/maps/api/js"></script>
+	    <script>
+		    var geocoder, map;
+
+		    function initialize() {
+		        var mapCanvas = document.getElementById('map-canvas');
+		        var mapOptions = {
+		          mapTypeId: google.maps.MapTypeId.ROADMAP
+		        }
+		        var map = new google.maps.Map(mapCanvas, mapOptions)
+		        codeAddress('{{ mapAddress }}');
+		    }
+
+		    function codeAddress(address) {
+			    geocoder = new google.maps.Geocoder();
+			    geocoder.geocode({'address': address}, function(results, status) {
+			        if (status == google.maps.GeocoderStatus.OK) {
+			            var myOptions = {
+			                zoom: 11,
+			                center: results[0].geometry.location,
+			                mapTypeId: google.maps.MapTypeId.ROADMAP
+			            }
+			            map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
+
+			            var marker = new google.maps.Marker({
+			                map: map,
+			                position: results[0].geometry.location
+			            });
+			        }
+			    });
+			}
+
+			google.maps.event.addDomListener(window, 'load', initialize);
+	    </script>
+   	{% endif %}
+{% endblock %}

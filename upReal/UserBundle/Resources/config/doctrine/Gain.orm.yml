@@ -1,0 +1,18 @@
+upReal\UserBundle\Entity\Gain:
+    type: entity
+    table: null
+    repositoryClass: upReal\UserBundle\Entity\GainRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+            column: id_user
+        idAchievement:
+            type: integer
+            column: id_achievement
+    lifecycleCallbacks: {  }

@@ -1,0 +1,23 @@
+ur_rate_like_product:
+    path:     /like/product/{id}/
+    defaults: { _controller: URRateBundle:Product:like }
+
+ur_rate_unlike_product:
+    path:     /unlike/product/{id}/
+    defaults: { _controller: URRateBundle:Product:unlike }
+
+ur_rate_dislike_product:
+    path:     /dislike/product/{id}/
+    defaults: { _controller: URRateBundle:Product:dislike }
+
+ur_rate_undislike_product:
+    path:     /undislike/product/{id}/
+    defaults: { _controller: URRateBundle:Product:undislike }
+
+ur_comment_add:
+    path:     /comment/add/
+    defaults: { _controller: URRateBundle:Comment:addCommentWidget }
+
+ur_comment_del:
+    path:     /comment/del/{id}
+    defaults: { _controller: URRateBundle:Comment:deleteComment }

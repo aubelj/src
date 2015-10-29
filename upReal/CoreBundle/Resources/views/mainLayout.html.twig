@@ -1,0 +1,132 @@
+{# src/upReal/CoreBundle/Resources/views/main.html.twig #}
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    {% include "URCoreBundle::header.html.twig" %}
+  </head>
+  <body>
+    <div id='userSection'>
+      {% include "URCoreBundle::menu.html.twig" %}
+    {% block userSection %}{% endblock %}
+    </div>
+    <div id='container'> <!-- '960px pour toute la page' -->
+<!--       <header>
+        <div id='logo'>
+          <img />
+        </div>
+        <div>
+          <div id='topHeader'>
+            <div id='topMsg'>
+            </div>
+            <div id='searchbox'>
+            </div>
+          </div>
+          <div id='botHeader'>
+            <nav id='menu'>
+              <ul>
+                <li><a href='{{ path('ur_user_lists') }}'>Listes</a></li>
+                <li>Actualités</li>
+                <li><a href='{{ path('ur_product_homepage') }}'>Produits</a></li>
+                <li><a href='{{ path('ur_store_homepage') }}'>Magasins</a></li>
+                <li>Fidélité</li>
+                <li><a href='/about/'>À propos</a></li>
+                <li>Contact</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header> -->
+
+      <div id='page'> <!-- ou section -->
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="flash-notice">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('success') %}
+          <div class="alert alert-success alert-dismissible" style='text-align:center;' role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              {{ flashMessage }}
+          </div>
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('error') %}
+          <div class="alert alert-error alert-dismissible" style='text-align:center;' role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              {{ flashMessage }}
+          </div>
+        {% endfor %}
+        <div id='msgBox'></div>
+        <br>
+        <div class="l-container">
+          {% block currentPage %}
+          {% endblock %}
+        </div>
+      </div>
+      <footer>
+      </footer>
+    </div>
+
+    {% include "URCoreBundle::footer.html.twig" %}
+
+    {% block scriptSection %}{% endblock %}
+    <script>
+      {% if (app.session.get('oauthDatas') ) %}
+        // L'utilisateur est connecté depuis un API (Fb, Google, Twitter)
+  
+        {% if (app.session.get('oauthDatas').provider == 'facebook') %}
+          window.fbAsyncInit = function() {
+            // init the FB JS SDK
+              FB.init({
+                  appId      : '615283341949961',                        // App ID from the app dashboard
+                  status     : true,                                 // Check Facebook Login status
+                  xfbml      : true,                                 // Look for social plugins on the page
+                  version    : 'v2.3'
+              });
+          };
+          (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+
+        function disconnectFacebook()
+        {
+          FB.logout(function(response) {
+              // Person is now logged out
+          });
+        }
+
+        document.getElementById("disconnect").addEventListener("click", disconnectFacebook);
+        {% endif %}
+
+        {% if (app.session.get('oauthDatas').provider == 'google') %}
+          // Déconnexion de Google+
+          function disconnectGoogle(access_token) {
+            var revokeUrl = 'https://accounts.google.com/o/oauth2/revoke?token=' +
+                '{{ app.session.get('oauthDatas').accessToken }}';
+
+            // Exécuter une requête GET asynchrone.
+            $.ajax({
+              type: 'GET',
+              url: revokeUrl,
+              async: true,
+              contentType: "application/json",
+              dataType: 'jsonp',
+              success: function(nullResponse) {
+              },
+              error: function(e) {
+                alert(e);
+              }
+            });
+          }
+          document.getElementById("disconnect").addEventListener("click", disconnectGoogle);
+        {% endif %}
+
+      {% endif %}
+
+    </script>
+  </body>
+</html>

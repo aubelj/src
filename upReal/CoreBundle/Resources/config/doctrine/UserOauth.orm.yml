@@ -1,0 +1,74 @@
+upReal\CoreBundle\Entity\UserOauth:
+    type: entity
+    table: user_oauth
+    # repositoryClass: upReal\CoreBundle\Entity\UserRepository
+
+    id:
+        id:
+            type: bigint
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        provider:
+            type: string
+            length: '250'
+            nullable: FALSE
+            column: provider
+        providerId:
+            type: string
+            length: '250'
+            nullable: FALSE
+            column: provider_id
+        nickname:
+            type: string
+            length: '250'
+            nullable: TRUE
+            column: nickname
+        realname:
+            type: string
+            length: '250'
+            nullable: TRUE
+            column: realname
+        email:
+            type: string
+            length: '250'
+            nullable: TRUE
+            column: email
+        profilePicture:
+            type: string
+            length: '250'
+            nullable: TRUE
+            column: profile_picture
+        accessToken:
+            type: string
+            length: '250'
+            nullable: TRUE
+            column: access_token
+        refreshToken:
+            type: string
+            length: '250'
+            nullable: TRUE
+            column: refresh_token
+        tokenSecret:
+            type: string
+            length: '250'
+            nullable: TRUE
+            column: token_secret
+        expiresIn:
+            type: string
+            length: '250'
+            nullable: TRUE
+            column: expires_in
+        userId:
+            type:   integer
+            column: id_user
+    # manyToOne:
+    #     user:
+    #         targetEntity: "upReal\CoreBundle\Security\OAuthUser"
+    #         joinColumn:
+    #             name: id_user
+    #             referencedColumnName: id
+
+
+    lifecycleCallbacks: {  }

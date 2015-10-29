@@ -1,0 +1,80 @@
+<div class="l-wrap">
+<div class="l-main ">
+
+<header class="header">
+  <div class="header-userbar" id="userbar">
+    <div class="header-dropdown">
+      <div class="userbar-dropdown">
+        {% if app.user %}
+          <button>
+            {% if app.user.picture is empty %}
+              <img src="http://userproplugin.com/userpro/wp-content/plugins/userpro/img/default_avatar_male.jpg" height="20" width="20">
+            {% else %}
+              <img src="{{ app.user.picture }}" height="20" width="20">
+            {% endif %}
+            <span>{{ app.user.username }}</span>
+            <span>&#9660;</span>
+          </button>
+          <ul class="userbar-dropdown-menu">
+            <li><a href="{{ path('ur_user_me') }}">Mon profil</a></li>
+            <li><a href="{{ path('ur_user_lists') }}">Mes listes</a></li>
+        {% else %}
+          <button>Je suis upReal &#9660;</button>
+          <ul class="userbar-dropdown-menu">
+            <li><a href="{{ path('ur_user_login') }}">Connexion</a></li>
+        {% endif %}
+            <li><a href="{{ path('ur_product_add') }}">Ajouter un produit</a></li>
+        {% if app.user %}
+            <li>
+              <a href='{{ path('ur_user_history') }}'>Historique</a>
+            </li>            
+            <li>
+              <a href='{{ path('logout') }}' id='disconnect'>Se déconnecter</a>
+            </li>
+        {% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="header-news">
+       <p>some information</p>
+    </div>
+    <div class="header-search">
+      <form action="{{ path('ur_search') }}">
+        {% if 'search' in app.request.attributes.get('_route') and app.session.get('last_search') %}
+          <input type="search" name="q" id="search" value="{{ app.session.get('last_search') }}">
+        {% else %}
+          <input type="search" name="q" id="search" placeholder='search on upReal'>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+
+  <div class="header-top">
+    <div class="l-container">
+      <div class="header-baseline">
+        <div class="header-logo">
+          {% image '@URCoreBundle/Resources/public/images/header-logo.png' %}
+            <a href="{{ path('ur_core_homepage') }}">
+              <img src="{{ asset_url }}" alt="upReal" />
+            </a>
+          {% endimage %}
+        </div>
+        <div class="baseline">upReal Project</div>
+      </div>
+  </div>
+
+  <div class="header-menu" id="menubar">
+    <div class="l-container">
+      <ul>
+          <li><a href="{{ path('ur_core_homepage') }}" class="menu-item is-active">Accueil</a></li>
+          <li><a href="{{ path('ur_product_categories') }}" class="menu-item">Produits</a></li>
+          <li><a href="{{ path('ur_store_homepage') }}" class="menu-item">Magasins</a></li>
+          {% if app.user %}
+            <li><a href="{{ path('ur_user_me_loyalty') }}" class="menu-item">Fidélité</a></li>
+          {% endif %}
+          <li><a href="{{ path('ur_core_contact') }}" class="menu-item">Contact</a></li>
+          <li><a href='/about/' class="menu-item">A Propos</a></li>
+        </ul>
+      <div>
+  </div>
+</header>

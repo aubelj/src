@@ -1,0 +1,28 @@
+{% extends "URAdminBundle::adminLayout.html.twig" %}
+
+{% block currentPage %}
+	<h1>Loyalty administration panel</h1>
+
+	{{ form_start(form, {'action': path('ur_admin_loyalty_add'), 'method': 'POST'}) }}
+	<div>
+		{{ form_label(form.back_cover) }}
+		{{ form_widget(form.back_cover) }}
+	</div>
+	<div>
+		{{ form_label(form.front_cover) }}
+		{{ form_widget(form.front_cover) }}
+	</div>
+	<div>
+		<label>Société</label>
+		<input required list="companies" name="loyalty_add[company]" id='loyalty_add_company'>
+		<datalist id="companies">
+			{% for company in companies %}
+			    <option value="{{ company.id }}">{{ company.name }}</option>
+			{% endfor %}
+		</datalist>
+	</div>
+	{{ form_widget(form.submit) }}
+	{{ form_widget(form._token) }}
+	{{ form_end(form, {'render_rest': false}) }}
+
+{% endblock %}

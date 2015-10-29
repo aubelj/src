@@ -1,0 +1,30 @@
+upReal\CoreBundle\Entity\Address:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        address:
+            type: string
+            length: '50'
+        address2:
+            type: string
+            length: '50'
+            column: address_2
+        city:
+            type: string
+            length: '20'
+        country:
+            type: string
+            length: '20'
+        postalCode:
+            type: integer
+            column: postal_code
+        lastUpdate:
+            type: datetime
+            column: last_update
+    lifecycleCallbacks: {  }

@@ -1,0 +1,84 @@
+<style>
+.roundImage{
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:70px;
+    height:70px;
+}
+
+.dc{
+	float:right;
+}
+</style>
+
+<br><br><br><br><br><br><br>
+</section>
+	<h2>Commentaires</h2>
+	<div>
+		{% if app.user %}
+			{{ render(controller('URRateBundle:Comment:addCommentWidget', {'idTarget': idTarget})) }}
+		{% endif %}
+	</div>
+	<hr />
+	<div>
+		{% for comment in comments %}
+			{{ comment.rate.user.picture }}
+			<div id='{{ "r" ~ comment.id }}' style='width:100%'>
+				<div style='display:inline-block;width:20%;text-align:center;'>
+			        {% if comment.rate.user.picture is empty %}
+			        	<img class='roundImage' src="http://userproplugin.com/userpro/wp-content/plugins/userpro/img/default_avatar_male.jpg">
+	        		{% else %}
+	          			<img class='roundImage' src="{{ comment.rate.user.picture }}">
+	        		{% endif %}
+				</div>
+				<div style='display:inline-block;width:70%;'>
+					<div>
+						<span>{{ comment.rate.commentary }}</span> <br>
+						<span style='color:grey;font-size:13px;'>{{ comment.rate.user.username}} - {{ comment.rate.date|date }}</span>
+					</div>
+					<div>
+						<a><span class="btn glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
+						<a><span class="btn glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+					</div>
+				</div>
+				{% if comment.rate.user.id == app.user.id %}
+					<span id='{{ "dc" ~ comment.id }}' onclick='delComment(this.id)' class="btn dc glyphicon glyphicon-remove" aria-hidden="true">
+					</span>
+				{% endif %}
+			</div>
+			<hr />
+		{% endfor %}
+	</div>
+</section>
+
+<script>
+
+	function delComment(id)
+	{
+		idr = id.slice(2);
+		q = confirm("Ce commentaire sera supprimé, voulez vous continuer ?");
+		if (q == false)
+			return ;
+
+		var url = "{{ path('ur_comment_del', {'id': 'id'}) }}"; 
+		url = url.replace("id", idr);
+
+		$.ajax({
+		    type: "POST",
+		    dataType: 'html',
+		    url: url,
+		    async: true
+		})
+		.done(function(response){
+			r = document.getElementById("r" + idr);
+			r.innerHTML = response;
+		    // $('#addListModal').html(response);
+		})
+		.fail(function(jqXHR, textStatus, errorThrown){
+		    alert('Error : ' + errorThrown);
+		})
+	}
+
+</script>

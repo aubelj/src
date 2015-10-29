@@ -1,0 +1,53 @@
+upReal\UserBundle\Entity\Possess:
+    type: entity
+    table: null
+    repositoryClass: upReal\UserBundle\Entity\PossessRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idUser:
+            type: integer
+            column: id_user
+        idLoyalty:
+            type: integer
+            column: id_loyalty
+        firstname:
+            type: string
+            length: '25'
+        lastname:
+            type: string
+            length: '25'
+        ean:
+            type: integer
+        balance:
+            type: integer
+        creationTime:
+            type: datetime
+            column: creation_time
+        expirationTime:
+            type: datetime
+            column: expiration_time
+        idStore:
+            type: integer
+            column: id_creation_place
+    oneToOne:
+        store:
+            targetEntity: upReal\StoreBundle\Entity\Store
+            joinColumn:
+                name: id_creation_place
+                referencedColumnName: id
+        user:
+            targetEntity: upReal\UserBundle\Entity\User
+            joinColumn:
+                name: id_user
+                referencedColumnName: id
+        loyalty:
+            targetEntity: upReal\UserBundle\Entity\Loyalty
+            joinColumn:
+                name: id_loyalty
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

@@ -1,0 +1,15 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+	{{ form_start(form, {'action': path('ur_user_inscription'), 'method': 'POST'}) }}
+    {{ form_errors(form) }}
+
+	<div class='form-group'>
+		<h3>Informations de connexion</h3>
+		{{ form_row(form.email) }}
+		{{ form_row(form.password) }}
+	</div>
+	{{ form_row(form._token) }}
+	{{ form_row(form.submit_inscription) }}
+	{{ form_end(form, {'render_rest': false}) }}
+{% endblock %}

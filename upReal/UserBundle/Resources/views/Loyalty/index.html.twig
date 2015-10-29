@@ -1,0 +1,25 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+<!--  -->
+	<h1>Cartes de fidélité</h1>
+	<br />
+
+	   	<button id='addListButton'>Ajouter</button>
+	   	<div id='addListModal'></div>
+	    {% for card in loyalty %}
+	    	<img src="">{{ card.loyalty.frontCover }}</img>
+			<br />
+			<span>{{ card.loyalty.company.name }}</span>
+			<span>{{ card.balance }}€</span>
+			<br />
+			<span>{{ card.ean }}</span>
+			<br />
+			<span>{{ card.firstname }}</span>
+			<span>{{ card.lastname }}</span>
+			<hr>
+	    {% endfor %}
+{% endblock %}
+
+{% block scriptSection %}
+{% endblock %}

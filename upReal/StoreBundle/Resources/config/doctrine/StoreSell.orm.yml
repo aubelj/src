@@ -1,0 +1,25 @@
+upReal\StoreBundle\Entity\StoreSell:
+    type: entity
+    table: store_sell
+    repositoryClass: upReal\StoreBundle\Entity\StoreSellRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        price:
+            type: decimal
+    oneToOne:
+        product:
+            targetEntity: upReal\ProductBundle\Entity\Product
+            joinColumn:
+                name: id_product
+                referencedColumnName: id
+        store:
+            targetEntity: upReal\StoreBundle\Entity\Store
+            joinColumn:
+                name: id_store
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

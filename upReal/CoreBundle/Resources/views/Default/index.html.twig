@@ -1,0 +1,93 @@
+{% extends 'URCoreBundle::mainLayout.html.twig' %}
+
+{% block currentPage %}
+
+	<div class="l-container">
+  <div class="section">
+    <div class="slider">
+    
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+    
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="http://lorempixel.com/output/technics-q-c-900-500-7.jpg" alt="...">
+          <div class="carousel-caption">
+              <h3>La news 1</h3>
+              <p>catchphrase pour la news 1</p>         
+          </div>
+        </div>
+        <div class="item">
+          <img src="http://lorempixel.com/output/technics-q-c-900-500-4.jpg" alt="...">
+          <div class="carousel-caption">
+           <h3>La news 2</h3>
+              <p>catchphrase pour la news 2</p>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+     </div>
+  </div>
+        <!-- slider à insérer ici -->
+     
+      <div class="items-list products">
+        <h2 class="text-left">Derniers produits</h2>
+    			{% for product in lastProducts %}
+            {% if loop.index0 == 0 or loop.index0 is divisibleby(3) %}
+              <div class="row">
+            {% endif %}
+	          <div class="col-md-4">
+	            <div class="row">
+	              <div class="item-item">
+	                <div class="row">
+                    <a href="{{ path('ur_product_view', {'id': product.id})}}">
+  	                  <div class="col-md-12">
+  	                    <div class="col-md-4">
+                          {% if product.picture %}
+                            <img src='{{ asset("/" ~ product.getWebPath()) }}' class="item-thumb" style="max-width:300px;max-height:300px"></img>
+                          {% else %}
+                            {% image '@URProductBundle/Resources/public/images/nopic.jpg' %}
+                                <img src="{{ asset_url }}" class="item-thumb" style="" />
+                            {% endimage %}
+                          {% endif %}
+  	                    </div>
+  	                    <div class="col-md-8" style='padding:15px'>
+  	                      <p class="item-name">{{ product.name }}</p>
+  	                      <div class="item-rating">
+  	                      </div>
+  	                    </div>
+  	                  </div>
+                    </a>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+            {% if loop.index is divisibleby(3) %}
+              </div>
+            {% endif %}
+	        {% endfor %}
+        </div>
+        <p class="text-right link-container">
+          <a href="#" class="text-right">Voir tout >></a>
+        </p>
+      </div>
+  	</div>
+	</div>
+
+{% endblock %}

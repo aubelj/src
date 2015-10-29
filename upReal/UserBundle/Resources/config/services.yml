@@ -1,0 +1,8 @@
+services:
+  ur_core.form.type.address:
+        class: upReal\CoreBundle\Form\Type\UserType
+        tags:
+            - { name: form.type, alias: user }
+#    ur_user.example:
+#        class: upReal\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

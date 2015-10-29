@@ -1,0 +1,58 @@
+ur_admin_homepage:
+    path:     /admin/users/
+    defaults: { _controller: URAdminBundle:User:index }
+
+ur_admin_user_delete:
+    path:     /admin/users/delete/{id}/
+    defaults: { _controller: URAdminBundle:User:delete }
+    requirements:
+        id:    \d+
+
+ur_admin_user_active:
+    path:     /admin/users/switchActive/{id}/{newStatus}/
+    defaults: { _controller: URAdminBundle:User:switchActive }
+    requirements:
+        id:    \d+
+
+ur_admin_store_list:
+    path:     /admin/stores/
+    defaults: { _controller: URAdminBundle:Store:index }
+
+ur_admin_store_add:
+    path:     /admin/stores/add/
+    defaults: { _controller: URAdminBundle:Store:add }
+
+ur_admin_store_delete:
+    path:     /admin/stores/delete/{id}/
+    defaults: { _controller: URAdminBundle:Store:delete }
+    requirements:
+        id:    \d+
+
+ur_admin_company_list:
+    path:     /admin/companies/
+    defaults: { _controller: URAdminBundle:Company:index }
+
+ur_admin_company_add:
+    path:     /admin/companies/add/
+    defaults: { _controller: URAdminBundle:Company:add }
+
+ur_admin_company_delete:
+    path:     /admin/companies/delete/{id}/
+    defaults: { _controller: URAdminBundle:Company:delete }
+    requirements:
+        id:    \d+
+
+ur_admin_loyalty_list:
+    path:     /admin/loyalty/
+    defaults: { _controller: URAdminBundle:Loyalty:index }
+
+ur_admin_loyalty_add:
+    path:     /admin/loyalty/add/
+    defaults: { _controller: URAdminBundle:Loyalty:add }
+
+ur_admin_loyalty_delete:
+    path:     /admin/loyalty/delete/{id}/
+    defaults: { _controller: URAdminBundle:Loyalty:delete }
+    requirements:
+        id:    \d+
+

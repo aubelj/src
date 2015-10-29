@@ -1,0 +1,4 @@
+services:
+#    ur_search.example:
+#        class: upReal\SearchBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

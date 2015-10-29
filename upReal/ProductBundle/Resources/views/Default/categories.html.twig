@@ -1,0 +1,20 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+	<div class="l-container">
+		<h1>Catégories</h1>
+		<div class="product-categories">
+			{% for category in categories %}
+				{% if loop.index0 == 0 or loop.index0 is divisibleby(4) %}
+					<div class="row cat-row">
+				{% endif %}
+					<div class="col-xs-3 cat-name">
+						<a href="{{ path('ur_search_category', { 'idCategory': category.id, 'category': category.name}) }}" title="" class="random-color" >{{ category.name|capitalize }}</a>
+					</div>
+				{% if loop.index is divisibleby(4) %}
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

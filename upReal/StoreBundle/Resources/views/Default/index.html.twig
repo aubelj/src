@@ -1,0 +1,25 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+	<div class="store-table">
+		<table class="table table-bordered">
+			<tr>
+		   		<th>Magasin</th>
+		   		<th>Société</th>
+		   	</tr>
+		    {% for store in stores %}
+			   	<tr>
+					<td>
+						<a href="{{ path('ur_store_view', {'id':store.id}) }}">
+							{{ store.name }}
+						</a>
+					</td>
+					<td>{{ store.company.name }}</td>
+				</tr>
+		    {% endfor %}
+		</table>
+	</div>
+{% endblock %}
+
+{% block scriptSection %}
+{% endblock %}

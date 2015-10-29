@@ -1,0 +1,46 @@
+{# src/upReal/AdminBundle/Resources/views/adminLayout.html.twig #}
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% javascripts '@URAdminBundle/Resources/public/js/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% stylesheets '@URAdminBundle/Resources/public/css/*' %}
+      <link rel="stylesheet" href="" />
+    {% endstylesheets %}
+    <title>{% block headTitle %}En développement{% endblock %}</title>
+  </head>
+  <body>
+    <div id='userSection'>
+      {% if app.user %}
+        <img src="{{ app.user.picture }}" height="45" width="45">
+<!--         <ul>
+          <li> -->
+            <a href='{{ path('ur_user_edit') }}'>{{ app.user.username }}</a>
+<!--           </li>
+        </ul> -->
+        <a href='{{ path('logout') }}'><button id='disconnect'>Se déconnecter</button></a>
+      {% else %}
+        <a href='{{ path('ur_user_inscription') }}'><button>Créer un compte</button></a>
+        <a href='{{ path('ur_user_login') }}'><button>Se connecter</button></a>
+      {% endif %}
+    {% block userSection %}{% endblock %}
+    </div>
+    <div id='container'> <!-- '960px pour toute la page' -->
+      <div id='page'> <!-- ou section -->
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="flash-notice">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        <br>
+        {% block currentPage %}{% endblock %}
+      </div>
+      <footer>
+      </footer>
+    </div>
+    {% block scriptSection %}{% endblock %}
+  </body>
+</html>

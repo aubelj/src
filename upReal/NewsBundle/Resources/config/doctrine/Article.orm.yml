@@ -1,0 +1,20 @@
+upReal\NewsBundle\Entity\Article:
+    type: entity
+    table: null
+    repositoryClass: upReal\NewsBundle\Entity\ArticleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '100'
+        body:
+            type: string
+            length: 255
+        creation:
+            type: datetime
+    lifecycleCallbacks: {  }

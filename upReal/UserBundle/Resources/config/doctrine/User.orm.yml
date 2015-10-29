@@ -1,0 +1,47 @@
+upReal\UserBundle\Entity\User:
+    type: entity
+    table: user
+    repositoryClass: upReal\UserBundle\Entity\UserRepository
+
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        username:
+            type: string
+            length: '30'
+            unique: true
+        firstname:
+            type: string
+            length: '30'
+        lastname:
+            type: string
+            length: '30'
+        email:
+            type: string
+            length: '50'
+        password:
+            type: string
+            length: '50'
+        createTime:
+            type: datetime
+            column: create_time
+        phone:
+            type: string
+            length: '100'
+        id_address:
+            type: integer
+        roles:
+            type: array
+        short_desc:
+            type: string
+            length: '50'
+        active:
+            type: integer
+            length: '4'
+        picture:
+            type: string
+    lifecycleCallbacks: {  }

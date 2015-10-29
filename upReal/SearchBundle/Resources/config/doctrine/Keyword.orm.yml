@@ -1,0 +1,15 @@
+upReal\SearchBundle\Entity\Keyword:
+    type: entity
+    table: null
+    repositoryClass: upReal\SearchBundle\Entity\KeywordRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '20'
+    lifecycleCallbacks: {  }

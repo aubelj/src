@@ -1,0 +1,3 @@
+services:
+  ur_product.user.lists:
+        class: upReal\UserBundle\Controller\ListController

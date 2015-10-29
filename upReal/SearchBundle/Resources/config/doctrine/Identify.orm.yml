@@ -1,0 +1,30 @@
+upReal\SearchBundle\Entity\Identify:
+    type: entity
+    table: null
+    repositoryClass: upReal\SearchBundle\Entity\IdentifyRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idProduct:
+            type: integer
+            column: id_product
+        idKeyword:
+            type: integer
+            column: id_keyword
+    manyToOne:
+        keyword:
+          targetEntity: upReal\SearchBundle\Entity\Keyword
+          joinColumn:
+            name: id_keyword
+            referencedColumnName: id
+        product:
+          targetEntity: upReal\ProductBundle\Entity\Product
+          joinColumn:
+            name: id_product
+            referencedColumnName: id
+
+    lifecycleCallbacks: {  }

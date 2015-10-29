@@ -1,0 +1,37 @@
+{% extends "URAdminBundle::adminLayout.html.twig" %}
+
+{% block currentPage %}
+	<h1>Stores administration panel</h1>
+	<a href="{{ path('ur_admin_store_add') }}"><button>Ajouter</button></a>
+	<br />
+	<br />
+	<table>
+	   	<tr>
+	   		<th>Nom</th>
+	   		<th>Site web</th>
+	   		<th>Ville</th>
+	   		<th>Code postal</th>
+	   		<th>Addresse</th>
+	   		<th>Pays</th>
+	   		<th>Société</th>
+	   	</tr>
+	    {% for store in stores %}
+		   	<tr>
+				<td>{{ store.name }}</td>
+				<td>{{ store.website }}</td>
+				<td>{{ store.address.city }}</td>
+				<td>{{ store.address.postalCode }}</td>
+				<td>{{ store.address.address }}</td>
+				<td>{{ store.address.country }}</td>
+				<td>{{ store.company.name }}</td>
+				<td>
+					<a href="{{ path('ur_admin_store_delete', {'id':store.id}) }}" onclick="return confirm('Ce magasin et toutes ses dépendances vont être supprimés. Continuer ?')">
+						<button>Delete</button>
+					</a>
+				</td>
+
+			</tr>
+	    {% endfor %}
+
+	</table>
+{% endblock %}

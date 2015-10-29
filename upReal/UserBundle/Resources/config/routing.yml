@@ -1,0 +1,74 @@
+ur_user_login:
+    path:     /user/login/
+    defaults: { _controller: URUserBundle:Security:login }
+
+ur_user_inscription:
+    path:     /user/inscription/
+    defaults: { _controller: URUserBundle:Manage:user_new }
+
+ur_user_edit:
+    path:     /user/edit/
+    defaults: { _controller: URUserBundle:Manage:user_edit }
+
+ur_user_delete:
+    path:     /user/delete/
+    defaults: { _controller: URUserBundle:Manage:user_delete }
+
+ur_user_me:
+    path:     /user/me/
+    defaults: { _controller: URUserBundle:Manage:user_me }
+
+ur_user_profile:
+    path:     /user/profile/{id}/
+    defaults: { _controller: URUserBundle:Manage:user_view }
+    requirements:
+        id:    \d+
+
+ur_user_history:
+    path:     /user/i/history
+    defaults: { _controller: URUserBundle:Manage:user_history }
+
+user_login_check:
+    pattern:  /user/login_check
+
+ur_user_lists:
+    path:     /me/lists/
+    defaults: { _controller: URUserBundle:List:index }
+
+ur_user_list_delete:
+    path:     /me/lists/delete/{id}/
+    defaults: { _controller: URUserBundle:List:delete }
+    requirements:
+        id:    \d+
+
+ur_user_list_view:
+    path:     /me/list/{id}/
+    defaults: { _controller: URUserBundle:List:view }
+    requirements:
+        id:    \d+
+
+ur_user_list_create_form:
+    path:     /me/lists/create/form/
+    defaults: { _controller: URUserBundle:List:AddListWidget }
+    requirements:
+        id:    \d+
+
+ur_user_list_push_tmp:
+    path:     /me/lists/create/push/
+    defaults: { _controller: URUserBundle:List:pushNewList }
+
+ur_user_get_lists:
+    path:     /me/lists/get/{idProduct}/
+    defaults: { _controller: URUserBundle:List:retrieveLists, idProduct: null }
+
+ur_user_list_push_product:
+    path:     /me/lists/add/{idProduct}/to/{idList}/
+    defaults: { _controller: URUserBundle:List:pushProductInList }
+
+ur_user_list_remove_item:
+    path:     /me/lists/remove/{idItem}
+    defaults: { _controller: URUserBundle:List:removeItem }
+
+ur_user_me_loyalty:
+    path:     /user/me/loyalty
+    defaults: { _controller: URUserBundle:Loyalty:index }

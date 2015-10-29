@@ -1,0 +1,19 @@
+ur_store_homepage:
+    path:     /stores/
+    defaults: { _controller: URStoreBundle:Default:index }
+
+ur_store_view:
+    path:     /store/{id}/
+    defaults: { _controller: URStoreBundle:Default:view }
+    requirements:
+        id:    \d+
+
+ur_store_add:
+    path:     /store/add/
+    defaults: { _controller: URStoreBundle:Default:add }
+
+ur_product_get_stores:
+    path:   /product/find/{id}/
+    defaults: { _controller: URStoreBundle:Default:findStoresFor }
+    requirements:
+        id:    \d+

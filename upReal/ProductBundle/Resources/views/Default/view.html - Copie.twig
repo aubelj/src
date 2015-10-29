@@ -1,0 +1,35 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+	<b>{{ product.name }}</b>
+	<br>
+	{{ product.brand }}
+	<br>
+	{{ product.picture }}
+	<br>
+	<button id='addListButton'>Ajouter à</button>
+	<div id='addListModal'></div>
+{% endblock %}
+
+{% block scriptSection %}
+	<script>
+		$(document).ready(function() {
+		    $('#addListButton').click(function(event) {
+		        event.preventDefault();
+		        // appel Ajax
+				$.ajax({
+				    type: "POST",
+				    dataType: 'html',
+				    url: '{{ path('ur_user_get_lists', {'idProduct': product.id}) }}',
+				    async: false //you won't need that if nothing in your following code is dependend of the result
+				})
+				.done(function(response){
+				    $('#addListModal').html(response); //Change the html of the div with the id = "your_div"                        
+				})
+				.fail(function(jqXHR, textStatus, errorThrown){
+				    alert('Error : ' + errorThrown);
+				})
+		    });
+		});
+	</script>
+{% endblock %}

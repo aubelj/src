@@ -1,0 +1,83 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+  {% if profile.picture %}
+  	<img src="{{ profile.picture }}" height="90" width="90">
+  {% else %}
+    <img src="http://userproplugin.com/userpro/wp-content/plugins/userpro/img/default_avatar_male.jpg" height="90" width="90">
+  {% endif %}
+	<b>{{ profile.username }}</b>
+	<a href="{{ path('ur_user_edit', {'id': profile.id }) }}"><button>Editer</button></a>
+	<br>
+	{{ profile.firstname }}
+	{{ profile.lastname }}
+	<hr>
+	{% if profile.address.city is not null %}
+		Ville : {{ profile.address.city }}
+		<br>
+	{% endif %}
+	Date d'inscription : {{ profile.createTime|date }}
+	<hr>
+	Karma : {{ karma.value }}
+	<hr>
+	{% if achiev is not null %}
+		Achieved : <br> 
+	    {% for ach in achiev %}
+	    	- {{ ach.name }}<br>
+	    {% endfor %}
+	{% endif %}
+
+    <div class="friends">
+      <div class="row line">
+        <h3 class="subtitle col-md-3">Mes Amis</h3>
+      </div>
+  
+      <div class="row">
+        <div class="friend col-md-2">
+          <img class="avatar" src="http://hd.wallpaperswide.com/thumbs/master_yoda_star_wars-t2.jpg" alt="YODAAA">
+          <p class="username">User</p>
+        </div>
+        <div class="friend col-md-2">
+          <img class="avatar" src="http://hd.wallpaperswide.com/thumbs/master_yoda_star_wars-t2.jpg" alt="YODAAA">
+          <p class="username">User</p>
+        </div>
+        <div class="friend col-md-2">
+          <img class="avatar" src="http://hd.wallpaperswide.com/thumbs/master_yoda_star_wars-t2.jpg" alt="YODAAA">
+          <p class="username">User</p>
+        </div>
+        <div class="friend col-md-2">
+          <img class="avatar" src="http://hd.wallpaperswide.com/thumbs/master_yoda_star_wars-t2.jpg" alt="YODAAA">
+          <p class="username">User</p>
+        </div>
+        <div class="friend col-md-2">
+          <img class="avatar" src="http://hd.wallpaperswide.com/thumbs/master_yoda_star_wars-t2.jpg" alt="YODAAA">
+          <p class="username">User</p>
+        </div>
+        <div class="friend col-md-2">
+          <img class="avatar" src="http://hd.wallpaperswide.com/thumbs/master_yoda_star_wars-t2.jpg" alt="YODAAA">
+          <p class="username">User</p>
+        </div>
+        <div class="friend col-md-2">
+          <img class="avatar" src="http://hd.wallpaperswide.com/thumbs/master_yoda_star_wars-t2.jpg" alt="YODAAA">
+          <p class="username">User</p>
+        </div>
+        <div class="friend col-md-2">
+          <img class="avatar" src="http://hd.wallpaperswide.com/thumbs/master_yoda_star_wars-t2.jpg" alt="YODAAA">
+          <p class="username">User</p>
+        </div>
+        <div class="friend col-md-2">
+          <img class="avatar" src="http://hd.wallpaperswide.com/thumbs/master_yoda_star_wars-t2.jpg" alt="YODAAA">
+          <p class="username">User</p>
+        </div>
+        <div class="friend col-md-2">
+          <img class="avatar" src="http://hd.wallpaperswide.com/thumbs/master_yoda_star_wars-t2.jpg" alt="YODAAA">
+          <p class="username">User</p>
+        </div>
+        <div class="friend col-md-2">
+          <img class="avatar" src="http://hd.wallpaperswide.com/thumbs/master_yoda_star_wars-t2.jpg" alt="YODAAA">
+          <p class="username">User</p>
+        </div>
+      </div>
+  </div>
+
+{% endblock %}

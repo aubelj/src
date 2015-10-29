@@ -1,0 +1,11 @@
+{% extends "URCoreBundle::mainLayout.html.twig" %}
+
+{% block currentPage %}
+	<a href='{{ path('ur_product_add') }}'><button>Ajouter un produit</button></a>
+	<br />
+	<ul>
+		{% for product in products %}
+			<li><a href="{{ path('ur_product_view', {'id' : product.id}) }}">{{ product.name }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

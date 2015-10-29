@@ -1,0 +1,15 @@
+{% extends 'URCoreBundle::mainLayout.html.twig' %}
+
+{% block currentPage %}
+	<div>
+		<h3>Derniers produits</h3>
+		{% for product in lastProducts %}
+			<div>
+				<a href="{{ path('ur_product_view', {'id': product.id})}}">
+					<img src='{{ product.picture }}'></img>
+					<span>{{ product.name }}</span>
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

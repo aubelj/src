@@ -1,0 +1,26 @@
+upReal\ProductBundle\Entity\Specification:
+    type: entity
+    table: null
+    repositoryClass: upReal\ProductBundle\Entity\SpecificationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fieldName:
+            type: string
+            length: 255
+            column: field_name
+        fieldDesc:
+            type: string
+            length: 255
+            column: field_desc
+    manyToOne:
+        product:
+          targetEntity: upReal\ProductBundle\Entity\Product
+          joinColumn:
+            name: id_product
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

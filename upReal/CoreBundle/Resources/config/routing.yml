@@ -1,0 +1,12 @@
+ur_core_homepage:
+    path:     /
+    defaults: { _controller: URCoreBundle:Default:index }
+
+ur_core_contact:
+    path:     /contact/
+    defaults: { _controller: URCoreBundle:Default:contact }
+
+ur_core_about:
+    path:     /about/
+
+

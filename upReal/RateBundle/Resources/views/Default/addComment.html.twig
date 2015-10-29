@@ -1,0 +1,18 @@
+{{ form_start(form, {'action': path('ur_comment_add'), 'method': 'POST', attr: {class: 'form-horizontal login-form submit-form'}}) }}
+	<h3>Ajouter</h3>
+	<hr /><br>
+	<ul>
+	    {{ form_errors(form) }}
+		<div class='form-group'>
+			{{ form_label(form.commentary, null, {'label_attr': {'class': 'col-sm-2', 'for':'commentary'}}) }}
+			<div class="col-sm-9">
+				{{ form_widget(form.commentary, {'attr': {'class': 'form-control'}}) }}
+			</div>
+		</div>
+	</ul>
+	<div class='hidden'>
+		{{ form_row(form.idTarget, { 'value': idTarget }) }}
+	</div>
+	{{ form_row(form.submit) }}
+	{{ form_row(form._token) }}
+{{ form_end(form, {'render_rest': false}) }}

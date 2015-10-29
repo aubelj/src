@@ -1,0 +1,36 @@
+upReal\UserBundle\Entity\Items:
+    type: entity
+    table: items
+    repositoryClass: upReal\UserBundle\Entity\ItemsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idList:
+            type: integer
+            column: id_list
+        idProduct:
+            type: integer
+            column: id_product
+    oneToOne:
+        product:
+            targetEntity: upReal\ProductBundle\Entity\Product
+            joinColumn:
+                name: id_product
+                referencedColumnName: id
+        user:
+            targetEntity: upReal\UserBundle\Entity\User
+            joinColumn:
+                name: id_user
+                referencedColumnName: id
+    manyToOne:
+        list:
+            targetEntity: upReal\UserBundle\Entity\Lists
+            inversedBy: items
+            joinColumn:
+                name: id_list
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

@@ -1,0 +1,5 @@
+services:
+    upreal.form.store.add:
+        class: upReal\StoreBundle\Form\StoreAdd
+        tags:
+            - { name: store.add, alias: store_add }
