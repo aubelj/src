@@ -80,4 +80,20 @@ class CommentController extends Controller
 
         return new Response("<i>Commentaire supprimé</i>");
     }
+
+    public function editCommentAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $rateinfo = $this->getDoctrine()->getRepository('URRateBundle:RateInfo')->find($id);
+        $rate = $rateinfo->getRate();
+
+        $rate->setCommentary($_POST['comment']);
+        $rate->setDate(new \Datetime());
+
+        $em->persist($rate);
+        $em->flush();
+
+        return new Response("<i>Modifié</i>");
+    }
 }

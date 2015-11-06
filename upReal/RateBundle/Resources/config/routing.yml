@@ -21,3 +21,7 @@ ur_comment_add:
 ur_comment_del:
     path:     /comment/del/{id}
     defaults: { _controller: URRateBundle:Comment:deleteComment }
+
+ur_comment_edit:
+    path:     /comment/edit/{id}
+    defaults: { _controller: URRateBundle:Comment:editComment }

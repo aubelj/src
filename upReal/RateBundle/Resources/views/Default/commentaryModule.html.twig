@@ -11,6 +11,22 @@
 .dc{
 	float:right;
 }
+
+.send{
+	color:forestgreen;
+}
+
+.send:hover{
+	color:darkgreen;
+}
+
+.cancel{
+	color:red;
+}
+
+.cancel:hover{
+	color:darkred;
+}
 </style>
 
 <br><br><br><br><br><br><br>
@@ -32,11 +48,14 @@
 	        		{% else %}
 	          			<img class='roundImage' src="{{ comment.rate.user.picture }}">
 	        		{% endif %}
+	        		<br>
+	        		<span>{{ comment.rate.user.username }}</span>
 				</div>
 				<div style='display:inline-block;width:70%;'>
 					<div>
-						<span>{{ comment.rate.commentary }}</span> <br>
-						<span style='color:grey;font-size:13px;'>{{ comment.rate.user.username}} - {{ comment.rate.date|date }}</span>
+						<span class='editable' id='{{ "c" ~ comment.id }}'>{{ comment.rate.commentary }}</span> <br>
+						<span id='{{ "i" ~ comment.id }}' style='color:grey;font-size:13px;'>{{ comment.rate.user.username}} - {{ comment.rate.date|date }}</span>
+						<span id='{{ "er" ~ comment.id }}' style='color:green'></span>
 					</div>
 					<div>
 						<a><span class="btn glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
@@ -45,6 +64,8 @@
 				</div>
 				{% if comment.rate.user.id == app.user.id %}
 					<span id='{{ "dc" ~ comment.id }}' onclick='delComment(this.id)' class="btn dc glyphicon glyphicon-remove" aria-hidden="true">
+					</span>
+					<span id='{{ "ec" ~ comment.id }}' onclick='toggleEdit(this.id)' class="btn dc glyphicon glyphicon-pencil" aria-hidden="true">
 					</span>
 				{% endif %}
 			</div>
@@ -80,5 +101,93 @@
 		    alert('Error : ' + errorThrown);
 		})
 	}
+
+	function toggleEdit(id)
+	{
+
+	}
+
+	function pushEdit(sendBtn, idr)
+	{
+		// alert(sendBtn.attr('class'));
+		var textArea = sendBtn.parent().prev();
+		var id = idr.slice(1);
+		var url = "{{ path('ur_comment_edit', {'id': 'id'}) }}"; 		
+		var val = textArea.val();
+
+		url = url.replace("id", id);
+
+		$.ajax({
+		    type: "POST",
+		    dataType: 'html',
+		    url: url,
+		    data: {comment: val},
+		    async: true
+		})
+		.done(function(response){
+			$("#i" + id).load(location.href + ' #i' + id);
+			c = document.getElementById("c" + id);
+			c.innerHTML = val;
+			r = document.getElementById("er" + id);
+			r.innerHTML = response;
+		})
+		.fail(function(jqXHR, textStatus, errorThrown){
+		    alert('Error : ' + errorThrown);
+		})
+	}
+
+	$(function () {
+	    //Loop through all Labels with class 'editable'.
+	    $(".editable").each(function () {
+	        //Reference the Label.
+	        var label = $(this);
+	 
+	        //Add a TextBox next to the Label.
+	        label.after("<textarea style='width:100%;display:none' /><div style='width:11%;border:1px dotted rgba(0, 0, 0, 0.1);display:none'><span class='send btn glyphicon glyphicon-ok'></span><span class='cancel btn glyphicon glyphicon-remove'></span></div>");
+	 
+	        //Reference the TextBox.
+	        var textbox = $(this).next();
+	 
+	        //Set the name attribute of the TextBox.
+	        textbox[0].name = this.id.replace("lbl", "txt");
+	 
+	        //Assign the value of Label to TextBox.
+	        textbox.val(label.html());
+	 
+	        //When Label is clicked, hide Label and show TextBox.
+	        label.click(function () {
+	            $(this).hide();
+	            $(this).next().show();
+	            $(this).next().next().show();
+	            $(this).next().focus();
+	        });
+	 
+	        var submit = textbox.next().next();
+	        var cancel = submit.next();
+
+	        $(document).on('click', '.send' , function (event) {
+				event.stopImmediatePropagation();
+	        	pushEdit($(this), $(this).parent().prev().prev().attr('id'));
+	        	$(this).parent().prev().hide();
+	        	$(this).parent().hide();
+	        	$(this).parent().prev().val($(this).parent().prev().prev().html());
+				$(this).parent().prev().prev().show();
+	        });
+
+	        $(document).on('click', '.cancel' , function (event) {
+				event.stopImmediatePropagation();
+	        	// alert($(this).parent().prev().val());
+	        	$(this).parent().prev().hide();
+	        	$(this).parent().hide();
+	        	$(this).parent().prev().val($(this).parent().prev().prev().html());
+				$(this).parent().prev().prev().show();
+	        });
+
+	        //When focus is lost from TextBox, hide TextBox and show Label.
+	        textbox.focusout(function () {
+
+	        });
+	    });
+	});
 
 </script>
